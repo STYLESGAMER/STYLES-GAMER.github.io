@@ -1,78 +1,483 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>STYLES GAMER</title>
 
     <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
+            background: #f5f5f5;
+            color: #222;
         }
+
+        /* ENCABEZADO */
 
         header {
-            background-color: #111111;
+            background: #111;
             color: white;
-            padding: 25px;
-            text-align: center;
         }
 
-        header h1 {
-            margin: 0;
-            font-size: 32px;
-        }
-
-        header p {
-            margin: 8px 0 0;
-            color: #cccccc;
-        }
-
-        main {
-            padding: 40px 20px;
-            text-align: center;
-        }
-
-        .bienvenida {
-            background-color: white;
-            max-width: 900px;
+        .top-header {
+            max-width: 1200px;
             margin: auto;
-            padding: 40px 20px;
-            border-radius: 12px;
+            padding: 18px 20px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
         }
 
-        .bienvenida h2 {
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .logo span {
+            color: #00e5ff;
+        }
+
+        /* BUSCADOR */
+
+        .search {
+            flex: 1;
+            max-width: 550px;
+            display: flex;
+        }
+
+        .search input {
+            width: 100%;
+            padding: 13px 15px;
+            border: none;
+            border-radius: 6px 0 0 6px;
+            font-size: 15px;
+            outline: none;
+        }
+
+        .search button {
+            padding: 0 20px;
+            border: none;
+            background: #00e5ff;
+            color: #111;
+            font-size: 18px;
+            border-radius: 0 6px 6px 0;
+            cursor: pointer;
+        }
+
+        /* CARRITO */
+
+        .cart {
+            font-size: 25px;
+            cursor: pointer;
+        }
+
+        /* MENÚ */
+
+        nav {
+            background: #1c1c1c;
+        }
+
+        .menu {
+            max-width: 1200px;
+            margin: auto;
+
+            display: flex;
+            justify-content: center;
+            gap: 35px;
+
+            padding: 14px 20px;
+        }
+
+        .menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .menu a:hover {
+            color: #00e5ff;
+        }
+
+        /* BANNER */
+
+        .banner {
+            max-width: 1200px;
+            margin: 25px auto;
+
+            padding: 70px 30px;
+
+            background: linear-gradient(
+                135deg,
+                #111,
+                #202020,
+                #00333a
+            );
+
+            color: white;
+
+            border-radius: 12px;
+
+            text-align: center;
+        }
+
+        .banner h1 {
+            font-size: 42px;
+            margin: 0 0 15px;
+        }
+
+        .banner p {
+            font-size: 18px;
+            color: #ddd;
+        }
+
+        .banner button {
+            margin-top: 15px;
+
+            padding: 13px 25px;
+
+            border: none;
+            border-radius: 6px;
+
+            background: #00e5ff;
+            color: #111;
+
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* CONTENIDO */
+
+        .contenido {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .titulo {
+            text-align: center;
+            margin: 35px 0 25px;
+        }
+
+        .titulo h2 {
             font-size: 28px;
         }
 
-        .bienvenida p {
-            font-size: 18px;
-            color: #555555;
+        /* PRODUCTOS */
+
+        .productos {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 20px;
         }
+
+        .producto {
+            background: white;
+
+            border-radius: 10px;
+
+            padding: 15px;
+
+            box-shadow:
+                0 2px 8px rgba(0,0,0,0.08);
+
+            transition: 0.2s;
+        }
+
+        .producto:hover {
+            transform: translateY(-4px);
+        }
+
+        .imagen-producto {
+            height: 190px;
+
+            background: #eeeeee;
+
+            border-radius: 8px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 60px;
+        }
+
+        .producto h3 {
+            font-size: 17px;
+            margin: 15px 0 8px;
+        }
+
+        .precio {
+            font-size: 21px;
+            font-weight: bold;
+            color: #111;
+        }
+
+        .producto button {
+            width: 100%;
+
+            margin-top: 12px;
+
+            padding: 11px;
+
+            border: none;
+            border-radius: 6px;
+
+            background: #111;
+            color: white;
+
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        .producto button:hover {
+            background: #00e5ff;
+            color: #111;
+        }
+
+        /* CELULARES */
+
+        @media (max-width: 800px) {
+
+            .top-header {
+                flex-wrap: wrap;
+            }
+
+            .search {
+                order: 3;
+                max-width: 100%;
+                width: 100%;
+            }
+
+            .menu {
+                gap: 15px;
+                flex-wrap: wrap;
+            }
+
+            .productos {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .banner h1 {
+                font-size: 30px;
+            }
+
+        }
+
+        @media (max-width: 500px) {
+
+            .productos {
+                grid-template-columns: 1fr;
+            }
+
+            .logo {
+                font-size: 23px;
+            }
+
+        }
+
     </style>
+
 </head>
+
 
 <body>
 
-    <header>
-        <h1>🎮 STYLES GAMER</h1>
-        <p>Tu tienda gamer</p>
-    </header>
 
-    <main>
-        <section class="bienvenida">
+<header>
 
-            <h2>Bienvenido a STYLES GAMER</h2>
+    <div class="top-header">
 
-            <p>
-                Encuentra productos gamer, accesorios,
-                tecnología y mucho más.
-            </p>
+        <div class="logo">
+            STYLES <span>GAMER</span>
+        </div>
 
-        </section>
-    </main>
+
+        <div class="search">
+
+            <input
+                type="text"
+                placeholder="Buscar productos..."
+            >
+
+            <button>🔎</button>
+
+        </div>
+
+
+        <div class="cart">
+            🛒
+        </div>
+
+    </div>
+
+
+    <nav>
+
+        <div class="menu">
+
+            <a href="#">INICIO</a>
+
+            <a href="#">PRODUCTOS</a>
+
+            <a href="#">CATEGORÍAS</a>
+
+            <a href="#">OFERTAS</a>
+
+            <a href="#">CONTACTO</a>
+
+        </div>
+
+    </nav>
+
+</header>
+
+
+<main>
+
+
+    <section class="banner">
+
+        <h1>
+            STYLES GAMER
+        </h1>
+
+        <p>
+            Tecnología, accesorios y productos gamer
+        </p>
+
+        <button>
+            VER PRODUCTOS
+        </button>
+
+    </section>
+
+
+    <section class="contenido">
+
+
+        <div class="titulo">
+
+            <h2>
+                🔥 PRODUCTOS DESTACADOS
+            </h2>
+
+        </div>
+
+
+        <div class="productos">
+
+
+            <div class="producto">
+
+                <div class="imagen-producto">
+                    🎮
+                </div>
+
+                <h3>
+                    Control Gamer
+                </h3>
+
+                <div class="precio">
+                    Bs 150
+                </div>
+
+                <button>
+                    COMPRAR
+                </button>
+
+            </div>
+
+
+            <div class="producto">
+
+                <div class="imagen-producto">
+                    🎧
+                </div>
+
+                <h3>
+                    Audífonos Gamer
+                </h3>
+
+                <div class="precio">
+                    Bs 180
+                </div>
+
+                <button>
+                    COMPRAR
+                </button>
+
+            </div>
+
+
+            <div class="producto">
+
+                <div class="imagen-producto">
+                    🖱️
+                </div>
+
+                <h3>
+                    Mouse Gamer
+                </h3>
+
+                <div class="precio">
+                    Bs 120
+                </div>
+
+                <button>
+                    COMPRAR
+                </button>
+
+            </div>
+
+
+            <div class="producto">
+
+                <div class="imagen-producto">
+                    ⌨️
+                </div>
+
+                <h3>
+                    Teclado Gamer
+                </h3>
+
+                <div class="precio">
+                    Bs 250
+                </div>
+
+                <button>
+                    COMPRAR
+                </button>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+</main>
+
 
 </body>
+
 </html>
