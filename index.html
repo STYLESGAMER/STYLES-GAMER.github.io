@@ -1,483 +1,752 @@
+
+
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-
-    <meta charset="UTF-8">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>STYLES GAMER</title>
-
-    <style>
-
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f5f5f5;
-            color: #222;
-        }
-
-        /* ENCABEZADO */
-
-        header {
-            background: #111;
-            color: white;
-        }
-
-        .top-header {
-            max-width: 1200px;
-            margin: auto;
-            padding: 18px 20px;
-
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 20px;
-        }
-
-        .logo {
-            font-size: 28px;
-            font-weight: bold;
-            white-space: nowrap;
-        }
-
-        .logo span {
-            color: #00e5ff;
-        }
-
-        /* BUSCADOR */
-
-        .search {
-            flex: 1;
-            max-width: 550px;
-            display: flex;
-        }
-
-        .search input {
-            width: 100%;
-            padding: 13px 15px;
-            border: none;
-            border-radius: 6px 0 0 6px;
-            font-size: 15px;
-            outline: none;
-        }
-
-        .search button {
-            padding: 0 20px;
-            border: none;
-            background: #00e5ff;
-            color: #111;
-            font-size: 18px;
-            border-radius: 0 6px 6px 0;
-            cursor: pointer;
-        }
-
-        /* CARRITO */
-
-        .cart {
-            font-size: 25px;
-            cursor: pointer;
-        }
-
-        /* MENÚ */
-
-        nav {
-            background: #1c1c1c;
-        }
-
-        .menu {
-            max-width: 1200px;
-            margin: auto;
-
-            display: flex;
-            justify-content: center;
-            gap: 35px;
-
-            padding: 14px 20px;
-        }
-
-        .menu a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 14px;
-        }
-
-        .menu a:hover {
-            color: #00e5ff;
-        }
-
-        /* BANNER */
-
-        .banner {
-            max-width: 1200px;
-            margin: 25px auto;
-
-            padding: 70px 30px;
-
-            background: linear-gradient(
-                135deg,
-                #111,
-                #202020,
-                #00333a
-            );
-
-            color: white;
-
-            border-radius: 12px;
-
-            text-align: center;
-        }
-
-        .banner h1 {
-            font-size: 42px;
-            margin: 0 0 15px;
-        }
-
-        .banner p {
-            font-size: 18px;
-            color: #ddd;
-        }
-
-        .banner button {
-            margin-top: 15px;
-
-            padding: 13px 25px;
-
-            border: none;
-            border-radius: 6px;
-
-            background: #00e5ff;
-            color: #111;
-
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        /* CONTENIDO */
-
-        .contenido {
-            max-width: 1200px;
-            margin: auto;
-            padding: 20px;
-        }
-
-        .titulo {
-            text-align: center;
-            margin: 35px 0 25px;
-        }
-
-        .titulo h2 {
-            font-size: 28px;
-        }
-
-        /* PRODUCTOS */
-
-        .productos {
-            display: grid;
-
-            grid-template-columns:
-                repeat(4, 1fr);
-
-            gap: 20px;
-        }
-
-        .producto {
-            background: white;
-
-            border-radius: 10px;
-
-            padding: 15px;
-
-            box-shadow:
-                0 2px 8px rgba(0,0,0,0.08);
-
-            transition: 0.2s;
-        }
-
-        .producto:hover {
-            transform: translateY(-4px);
-        }
-
-        .imagen-producto {
-            height: 190px;
-
-            background: #eeeeee;
-
-            border-radius: 8px;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            font-size: 60px;
-        }
-
-        .producto h3 {
-            font-size: 17px;
-            margin: 15px 0 8px;
-        }
-
-        .precio {
-            font-size: 21px;
-            font-weight: bold;
-            color: #111;
-        }
-
-        .producto button {
-            width: 100%;
-
-            margin-top: 12px;
-
-            padding: 11px;
-
-            border: none;
-            border-radius: 6px;
-
-            background: #111;
-            color: white;
-
-            font-weight: bold;
-
-            cursor: pointer;
-        }
-
-        .producto button:hover {
-            background: #00e5ff;
-            color: #111;
-        }
-
-        /* CELULARES */
-
-        @media (max-width: 800px) {
-
-            .top-header {
-                flex-wrap: wrap;
-            }
-
-            .search {
-                order: 3;
-                max-width: 100%;
-                width: 100%;
-            }
-
-            .menu {
-                gap: 15px;
-                flex-wrap: wrap;
-            }
-
-            .productos {
-                grid-template-columns:
-                    repeat(2, 1fr);
-            }
-
-            .banner h1 {
-                font-size: 30px;
-            }
-
-        }
-
-        @media (max-width: 500px) {
-
-            .productos {
-                grid-template-columns: 1fr;
-            }
-
-            .logo {
-                font-size: 23px;
-            }
-
-        }
-
-    </style>
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#101014">
+<title>STYLES GAMER | Tienda Gamer</title>
+<meta name="description" content="Encuentra videojuegos, consolas y accesorios gamer en STYLES GAMER.">
+
+<style>
+:root {
+  --bg:#f5f5f7;
+  --dark:#111116;
+  --cyan:#00d9ff;
+  --red:#ee243c;
+  --text:#22232a;
+  --muted:#777985;
+  --white:#fff;
+}
+* {box-sizing:border-box}
+html {scroll-behavior:smooth}
+body {
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  color:var(--text);
+  background:var(--bg);
+}
+a {color:inherit;text-decoration:none}
+button,input {font:inherit}
+button {cursor:pointer}
+.promo {
+  background:var(--cyan);
+  color:#101014;
+  text-align:center;
+  padding:9px 12px;
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:.5px;
+}
+.header {background:var(--dark);color:white}
+.top {
+  max-width:1300px;
+  margin:auto;
+  padding:22px 24px;
+  display:flex;
+  align-items:center;
+  gap:30px;
+}
+.logo {
+  font-size:25px;
+  font-weight:900;
+  letter-spacing:-1px;
+  white-space:nowrap;
+}
+.logo span {color:var(--cyan)}
+.search {
+  display:flex;
+  flex:1;
+  max-width:650px;
+  background:white;
+  border-radius:5px;
+  overflow:hidden;
+}
+.search input {
+  border:0;
+  outline:none;
+  padding:14px 16px;
+  width:100%;
+  min-width:0;
+  color:#222;
+}
+.search button {
+  border:0;
+  background:var(--cyan);
+  padding:0 19px;
+  font-size:20px;
+}
+.header-actions {
+  margin-left:auto;
+  display:flex;
+  gap:18px;
+  align-items:center;
+}
+.action {
+  border:0;
+  background:transparent;
+  color:white;
+  font-size:13px;
+}
+.cart-count {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  background:var(--cyan);
+  color:#111;
+  border-radius:50%;
+  width:21px;
+  height:21px;
+  font-weight:bold;
+}
+.nav {background:#1c1c22}
+.nav-inner {
+  max-width:1300px;
+  margin:auto;
+  padding:0 24px;
+  display:flex;
+  align-items:center;
+  gap:30px;
+  min-height:47px;
+  overflow-x:auto;
+}
+.nav a {
+  white-space:nowrap;
+  font-size:12px;
+  font-weight:bold;
+  color:white;
+}
+.nav a:hover {color:var(--cyan)}
+.nav .all {color:var(--cyan)}
+main {max-width:1300px;margin:auto;padding:0 24px}
+.hero {
+  margin:24px 0;
+  min-height:310px;
+  border-radius:9px;
+  overflow:hidden;
+  color:white;
+  background:
+    radial-gradient(ellipse at 80% 40%,#174d5c 0%,transparent 42%),
+    linear-gradient(110deg,#111116 15%,#20202a 65%,#063c48);
+  display:flex;
+  align-items:center;
+  position:relative;
+}
+.hero-content {padding:45px 6%;max-width:700px;position:relative;z-index:1}
+.eyebrow {
+  color:var(--cyan);
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:2px;
+}
+.hero h1 {
+  font-size:clamp(32px,5vw,56px);
+  line-height:1.03;
+  margin:15px 0;
+  letter-spacing:-1.5px;
+}
+.hero p {color:#d4d5df;line-height:1.7;max-width:470px}
+.btn {
+  display:inline-flex;
+  justify-content:center;
+  align-items:center;
+  gap:8px;
+  padding:13px 19px;
+  border:0;
+  border-radius:4px;
+  background:var(--cyan);
+  color:#101014;
+  font-weight:900;
+  font-size:12px;
+  margin-top:13px;
+}
+.btn:hover {filter:brightness(.92)}
+.hero-decoration {
+  position:absolute;
+  right:7%;
+  font-size:clamp(100px,18vw,220px);
+  opacity:.18;
+  transform:rotate(-12deg);
+}
+.benefits {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+  margin:25px 0 35px;
+}
+.benefit {
+  background:white;
+  border:1px solid #ececf0;
+  border-radius:6px;
+  padding:17px 12px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+.benefit .emoji {font-size:25px}
+.benefit strong {font-size:12px;display:block}
+.benefit small {display:block;color:var(--muted);margin-top:5px;font-size:11px}
+.section {margin:40px 0}
+.section-head {
+  display:flex;
+  align-items:end;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:20px;
+}
+.section-head h2 {font-size:24px;margin:0}
+.section-head p {margin:7px 0 0;color:var(--muted);font-size:13px}
+.section-link {font-size:12px;font-weight:bold;color:#087d91;white-space:nowrap}
+.categories {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px;
+}
+.category {
+  background:#18181e;
+  color:white;
+  padding:23px 16px;
+  border-radius:7px;
+  display:flex;
+  align-items:center;
+  gap:14px;
+  border:1px solid #292931;
+  text-align:left;
+}
+.category:hover {border-color:var(--cyan);transform:translateY(-2px)}
+.category .icon {font-size:33px}
+.category strong {font-size:13px}
+.category small {display:block;color:#aaa;margin-top:5px;font-size:11px}
+.filters {display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+.filter {
+  background:white;
+  border:1px solid #dddde3;
+  padding:10px 15px;
+  border-radius:4px;
+  color:#333;
+  font-size:12px;
+  font-weight:bold;
+}
+.filter.active,.filter:hover {
+  background:var(--dark);
+  color:white;
+  border-color:var(--dark);
+}
+.products {
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:17px;
+}
+.product {
+  background:white;
+  border:1px solid #e9e9ed;
+  border-radius:7px;
+  overflow:hidden;
+  min-width:0;
+  transition:transform .2s,box-shadow .2s;
+}
+.product:hover {
+  transform:translateY(-3px);
+  box-shadow:0 8px 25px #15151d12;
+}
+.product-image {
+  height:205px;
+  position:relative;
+  background:#eeeef2;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+}
+.product-image img {
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  padding:12px;
+  transition:transform .25s;
+}
+.product:hover .product-image img {transform:scale(1.04)}
+.product-emoji {font-size:75px}
+.sale {
+  position:absolute;
+  left:10px;
+  top:10px;
+  background:var(--red);
+  color:white;
+  padding:6px 8px;
+  border-radius:3px;
+  font-size:10px;
+  font-weight:900;
+}
+.product-info {padding:15px}
+.product-category {
+  font-size:10px;
+  text-transform:uppercase;
+  color:#81818b;
+  font-weight:bold;
+  letter-spacing:.5px;
+}
+.product h3 {
+  font-size:14px;
+  line-height:1.45;
+  min-height:40px;
+  margin:9px 0;
+}
+.prices {display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.old-price {color:#999;font-size:12px;text-decoration:line-through}
+.price {font-size:21px;font-weight:900;color:#17171b}
+.product-buttons {display:grid;grid-template-columns:1fr;gap:7px;margin-top:14px}
+.buy {
+  width:100%;
+  border:0;
+  border-radius:4px;
+  padding:11px 6px;
+  background:#17171b;
+  color:white;
+  font-weight:bold;
+  font-size:11px;
+}
+.buy:hover {background:var(--cyan);color:#111}
+.empty {
+  display:none;
+  padding:35px;
+  text-align:center;
+  color:var(--muted);
+  background:white;
+}
+.promo-banner {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  background:#14141a;
+  color:white;
+  padding:30px;
+  border-radius:7px;
+  margin:45px 0;
+}
+.promo-banner h2 {margin:0 0 8px;font-size:24px}
+.promo-banner p {margin:0;color:#c4c4ce;font-size:13px}
+.promo-banner .btn {flex-shrink:0}
+.newsletter {
+  text-align:center;
+  padding:30px 10px 45px;
+}
+.newsletter h2 {font-size:24px}
+.newsletter p {color:var(--muted);font-size:13px;line-height:1.6}
+footer {background:#111116;color:white;margin-top:20px}
+.footer-inner {
+  max-width:1300px;
+  margin:auto;
+  padding:40px 24px 22px;
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr;
+  gap:35px;
+}
+footer h3 {font-size:13px;margin-top:0}
+footer p,footer a {font-size:12px;color:#b7b7c1;line-height:1.9}
+.footer-links {display:flex;flex-direction:column}
+.footer-bottom {
+  border-top:1px solid #303038;
+  padding:17px 24px;
+  text-align:center;
+  color:#9999a4;
+  font-size:11px;
+}
+.mobile-menu {display:none}
+@media(max-width:900px) {
+  .top {gap:15px;padding:18px}
+  .logo {font-size:21px}
+  .header-actions .action-text {display:none}
+  .products {grid-template-columns:repeat(3,minmax(0,1fr))}
+  .categories {grid-template-columns:repeat(2,1fr)}
+  .benefits {grid-template-columns:repeat(2,1fr)}
+  main {padding:0 18px}
+  .product-image {height:185px}
+}
+@media(max-width:600px) {
+  .promo {font-size:10px}
+  .top {padding:15px;flex-wrap:wrap;gap:14px}
+  .logo {font-size:22px}
+  .header-actions {margin-left:auto}
+  .search {order:3;flex-basis:100%;max-width:none}
+  .search input {padding:12px}
+  .nav-inner {padding:0 15px;gap:22px}
+  main {padding:0 12px}
+  .hero {min-height:290px;margin-top:14px}
+  .hero-content {padding:30px 23px}
+  .hero-decoration {right:0;font-size:115px}
+  .hero h1 {font-size:35px}
+  .hero p {font-size:13px}
+  .benefits {gap:8px;margin:18px 0 28px}
+  .benefit {padding:12px 8px;gap:8px}
+  .benefit .emoji {font-size:21px}
+  .benefit strong {font-size:10px}
+  .benefit small {font-size:10px}
+  .section {margin:32px 0}
+  .section-head h2 {font-size:19px}
+  .section-head p {font-size:11px}
+  .categories {gap:9px}
+  .category {padding:16px 10px;gap:9px}
+  .category .icon {font-size:26px}
+  .category strong {font-size:11px}
+  .category small {font-size:10px}
+  .products {grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+  .product-image {height:155px}
+  .product-image img {padding:7px}
+  .product-info {padding:10px}
+  .product h3 {font-size:12px;min-height:51px}
+  .price {font-size:18px}
+  .old-price {font-size:10px}
+  .product-category {font-size:9px}
+  .sale {font-size:9px;left:6px;top:6px;padding:5px}
+  .buy {font-size:10px;padding:10px 4px}
+  .promo-banner {padding:22px 16px;align-items:flex-start;flex-direction:column}
+  .promo-banner h2 {font-size:21px}
+  .footer-inner {padding:30px 18px;grid-template-columns:1fr 1fr;gap:22px}
+  .footer-brand {grid-column:1/-1}
+}
+</style>
 </head>
 
-
 <body>
+<div class="promo">🎮 STYLES GAMER · VIDEOJUEGOS, CONSOLAS Y ACCESORIOS</div>
 
+<header class="header">
+  <div class="top">
+    <a class="logo" href="#" aria-label="Styles Gamer inicio">STYLES <span>GAMER</span></a>
 
-<header>
+    <form class="search" id="searchForm">
+      <input id="searchInput" type="search" placeholder="¿Qué producto estás buscando?" aria-label="Buscar productos">
+      <button type="submit" aria-label="Buscar">⌕</button>
+    </form>
 
-    <div class="top-header">
-
-        <div class="logo">
-            STYLES <span>GAMER</span>
-        </div>
-
-
-        <div class="search">
-
-            <input
-                type="text"
-                placeholder="Buscar productos..."
-            >
-
-            <button>🔎</button>
-
-        </div>
-
-
-        <div class="cart">
-            🛒
-        </div>
-
+    <div class="header-actions">
+      <button class="action" id="cartButton" type="button">
+        🛒 <span class="action-text">Mi pedido</span>
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
     </div>
+  </div>
 
-
-    <nav>
-
-        <div class="menu">
-
-            <a href="#">INICIO</a>
-
-            <a href="#">PRODUCTOS</a>
-
-            <a href="#">CATEGORÍAS</a>
-
-            <a href="#">OFERTAS</a>
-
-            <a href="#">CONTACTO</a>
-
-        </div>
-
-    </nav>
-
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="all" href="#productos" data-category="Todos">☰ TODOS LOS PRODUCTOS</a>
+      <a href="#productos" data-category="Consolas">CONSOLAS</a>
+      <a href="#productos" data-category="Juegos PS5">JUEGOS PS5</a>
+      <a href="#productos" data-category="Juegos PS4">JUEGOS PS4</a>
+      <a href="#productos" data-category="Accesorios">ACCESORIOS</a>
+      <a href="#ofertas">OFERTAS</a>
+      <a href="#contacto">CONTACTO</a>
+    </div>
+  </nav>
 </header>
 
-
 <main>
+  <section class="hero">
+    <div class="hero-content">
+      <div class="eyebrow">TU PRÓXIMO NIVEL COMIENZA AQUÍ</div>
+      <h1>VIVE EL JUEGO.<br>ELIGE TU NIVEL.</h1>
+      <p>Descubre videojuegos, consolas y accesorios para llevar tu experiencia gamer más lejos.</p>
+      <a href="#productos" class="btn">EXPLORAR CATÁLOGO →</a>
+    </div>
+    <div class="hero-decoration" aria-hidden="true">🎮</div>
+  </section>
 
+  <section class="benefits" aria-label="Ventajas">
+    <div class="benefit"><span class="emoji">🎮</span><div><strong>VARIEDAD GAMER</strong><small>Juegos y accesorios</small></div></div>
+    <div class="benefit"><span class="emoji">💬</span><div><strong>ATENCIÓN DIRECTA</strong><small>Consulta por WhatsApp</small></div></div>
+    <div class="benefit"><span class="emoji">🏷️</span><div><strong>PRECIOS CLAROS</strong><small>En bolivianos (Bs)</small></div></div>
+    <div class="benefit"><span class="emoji">🛍️</span><div><strong>COMPRA FÁCIL</strong><small>Arma tu pedido</small></div></div>
+  </section>
 
-    <section class="banner">
+  <section class="section">
+    <div class="section-head">
+      <div><h2>EXPLORA POR CATEGORÍA</h2><p>Encuentra lo que buscas más rápido.</p></div>
+    </div>
+    <div class="categories">
+      <a href="#productos" class="category" data-category="Consolas"><span class="icon">🎮</span><div><strong>CONSOLAS</strong><small>PlayStation y más</small></div></a>
+      <a href="#productos" class="category" data-category="Juegos PS5"><span class="icon">💿</span><div><strong>JUEGOS PS5</strong><small>La nueva generación</small></div></a>
+      <a href="#productos" class="category" data-category="Juegos PS4"><span class="icon">🕹️</span><div><strong>JUEGOS PS4</strong><small>Grandes clásicos</small></div></a>
+      <a href="#productos" class="category" data-category="Accesorios"><span class="icon">🎧</span><div><strong>ACCESORIOS</strong><small>Mejora tu setup</small></div></a>
+    </div>
+  </section>
 
-        <h1>
-            STYLES GAMER
-        </h1>
+  <section class="section" id="productos">
+    <div class="section-head">
+      <div><h2>PRODUCTOS DESTACADOS</h2><p>Explora nuestro catálogo gamer.</p></div>
+      <a class="section-link" href="#productos" id="showAll">VER TODO →</a>
+    </div>
 
-        <p>
-            Tecnología, accesorios y productos gamer
-        </p>
+    <div class="filters" id="filters">
+      <button class="filter active" data-category="Todos">Todos</button>
+      <button class="filter" data-category="Consolas">Consolas</button>
+      <button class="filter" data-category="Juegos PS5">Juegos PS5</button>
+      <button class="filter" data-category="Juegos PS4">Juegos PS4</button>
+      <button class="filter" data-category="Accesorios">Accesorios</button>
+    </div>
 
-        <button>
-            VER PRODUCTOS
-        </button>
+    <div class="products" id="productGrid"></div>
+    <div class="empty" id="emptyMessage">No encontramos productos con esa búsqueda.</div>
+  </section>
 
-    </section>
+  <section class="promo-banner" id="ofertas">
+    <div>
+      <div class="eyebrow">ZONA DE OFERTAS</div>
+      <h2>¡EQUÍPATE PARA JUGAR!</h2>
+      <p>Consulta disponibilidad y precios de nuestros productos.</p>
+    </div>
+    <a class="btn" id="offerWhatsApp" href="#" target="_blank" rel="noopener">CONSULTAR OFERTAS ↗</a>
+  </section>
 
-
-    <section class="contenido">
-
-
-        <div class="titulo">
-
-            <h2>
-                🔥 PRODUCTOS DESTACADOS
-            </h2>
-
-        </div>
-
-
-        <div class="productos">
-
-
-            <div class="producto">
-
-                <div class="imagen-producto">
-                    🎮
-                </div>
-
-                <h3>
-                    Control Gamer
-                </h3>
-
-                <div class="precio">
-                    Bs 150
-                </div>
-
-                <button>
-                    COMPRAR
-                </button>
-
-            </div>
-
-
-            <div class="producto">
-
-                <div class="imagen-producto">
-                    🎧
-                </div>
-
-                <h3>
-                    Audífonos Gamer
-                </h3>
-
-                <div class="precio">
-                    Bs 180
-                </div>
-
-                <button>
-                    COMPRAR
-                </button>
-
-            </div>
-
-
-            <div class="producto">
-
-                <div class="imagen-producto">
-                    🖱️
-                </div>
-
-                <h3>
-                    Mouse Gamer
-                </h3>
-
-                <div class="precio">
-                    Bs 120
-                </div>
-
-                <button>
-                    COMPRAR
-                </button>
-
-            </div>
-
-
-            <div class="producto">
-
-                <div class="imagen-producto">
-                    ⌨️
-                </div>
-
-                <h3>
-                    Teclado Gamer
-                </h3>
-
-                <div class="precio">
-                    Bs 250
-                </div>
-
-                <button>
-                    COMPRAR
-                </button>
-
-            </div>
-
-
-        </div>
-
-    </section>
-
-
+  <section class="newsletter">
+    <h2>¿BUSCAS UN JUEGO EN PARTICULAR?</h2>
+    <p>Escríbenos directamente y consulta por disponibilidad, precios y pedidos.</p>
+    <a class="btn" id="contactWhatsApp" href="#" target="_blank" rel="noopener">CONTACTAR POR WHATSAPP</a>
+  </section>
 </main>
 
+<footer id="contacto">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a class="logo" href="#">STYLES <span>GAMER</span></a>
+      <p>Tu espacio gamer para encontrar videojuegos, consolas y accesorios.</p>
+      <p>Bolivia · Precios en Bs</p>
+    </div>
+    <div>
+      <h3>CATÁLOGO</h3>
+      <div class="footer-links">
+        <a href="#productos" data-category="Consolas">Consolas</a>
+        <a href="#productos" data-category="Juegos PS5">Juegos PS5</a>
+        <a href="#productos" data-category="Juegos PS4">Juegos PS4</a>
+        <a href="#productos" data-category="Accesorios">Accesorios</a>
+      </div>
+    </div>
+    <div>
+      <h3>ATENCIÓN</h3>
+      <div class="footer-links">
+        <a id="footerWhatsApp" href="#" target="_blank" rel="noopener">WhatsApp y consultas</a>
+        <a href="#ofertas">Ofertas</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+      <p>Consulta las condiciones de entrega antes de comprar.</p>
+    </div>
+  </div>
+  <div class="footer-bottom">© <span id="year"></span> STYLES GAMER · Todos los derechos reservados.</div>
+</footer>
 
+<script>
+/*
+  CONFIGURACIÓN:
+  1. Reemplaza el número de WhatsApp de abajo.
+  2. Edita los productos y precios en la lista PRODUCTS.
+  3. Usa el formato internacional sin +, espacios ni guiones.
+*/
+const WHATSAPP_NUMBER = "591XXXXXXXX";
+
+const PRODUCTS = [
+  {
+    id:1, name:"PlayStation 5 Slim",
+    category:"Consolas", price:4500, oldPrice:4800,
+    badge:"OFERTA", emoji:"🎮",
+    image:"https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&fit=crop&w=600&q=85"
+  },
+  {
+    id:2, name:"Control inalámbrico",
+    category:"Accesorios", price:350, oldPrice:400,
+    badge:"OFERTA", emoji:"🕹️",
+    image:"https://images.unsplash.com/photo-1600080972464-8e5f35f63d08?auto=format&fit=crop&w=600&q=85"
+  },
+  {
+    id:3, name:"Audífonos Gamer",
+    category:"Accesorios", price:220, oldPrice:0,
+    badge:"", emoji:"🎧",
+    image:"https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=600&q=85"
+  },
+  {
+    id:4, name:"Teclado Gamer RGB",
+    category:"Accesorios", price:280, oldPrice:320,
+    badge:"OFERTA", emoji:"⌨️",
+    image:"https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=600&q=85"
+  },
+  {
+    id:5, name:"EA SPORTS FC",
+    category:"Juegos PS5", price:350, oldPrice:0,
+    badge:"", emoji:"⚽",
+    image:"https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?auto=format&fit=crop&w=600&q=85"
+  },
+  {
+    id:6, name:"God of War Ragnarök",
+    category:"Juegos PS4", price:180, oldPrice:220,
+    badge:"OFERTA", emoji:"⚔️",
+    image:"https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=600&q=85"
+  },
+  {
+    id:7, name:"Mouse Gamer RGB",
+    category:"Accesorios", price:140, oldPrice:0,
+    badge:"", emoji:"🖱️",
+    image:"https://images.unsplash.com/photo-1527814050087-3793815479db?auto=format&fit=crop&w=600&q=85"
+  },
+  {
+    id:8, name:"Consola PlayStation 4",
+    category:"Consolas", price:1800, oldPrice:0,
+    badge:"", emoji:"🎮",
+    image:"https://images.unsplash.com/photo-1486401899868-0e435ed85128?auto=format&fit=crop&w=600&q=85"
+  }
+];
+
+let selectedCategory = "Todos";
+let cart = [];
+
+const grid = document.getElementById("productGrid");
+const searchInput = document.getElementById("searchInput");
+
+function money(value) {
+  return "Bs " + Number(value).toLocaleString("es-BO");
+}
+
+function whatsappLink(message) {
+  const number = WHATSAPP_NUMBER.replace(/\D/g, "");
+  if (!number || number.endsWith("XXXXXXXX")) return "#";
+  return "https://wa.me/" + number + "?text=" + encodeURIComponent(message);
+}
+
+function syncWhatsAppLinks() {
+  const message = "Hola, quiero consultar por los productos de STYLES GAMER.";
+  ["offerWhatsApp","contactWhatsApp","footerWhatsApp"].forEach(id => {
+    const el = document.getElementById(id);
+    el.href = whatsappLink(message);
+    el.onclick = event => {
+      if (el.href.endsWith("#")) {
+        event.preventDefault();
+        alert("Primero configura WHATSAPP_NUMBER en el código con tu número real.");
+      }
+    };
+  });
+}
+
+function renderProducts() {
+  const term = searchInput.value.trim().toLowerCase();
+
+  const filtered = PRODUCTS.filter(product => {
+    const categoryMatch = selectedCategory === "Todos" ||
+                          product.category === selectedCategory;
+    const textMatch = (product.name + " " + product.category)
+                      .toLowerCase().includes(term);
+    return categoryMatch && textMatch;
+  });
+
+  grid.innerHTML = filtered.map(product => `
+    <article class="product">
+      <div class="product-image">
+        ${product.badge ? `<span class="sale">${product.badge}</span>` : ""}
+        <img
+          src="${product.image}"
+          alt="${product.name}"
+          loading="lazy"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='block'"
+        >
+        <span class="product-emoji" style="display:none">${product.emoji}</span>
+      </div>
+      <div class="product-info">
+        <div class="product-category">${product.category}</div>
+        <h3>${product.name}</h3>
+        <div class="prices">
+          ${product.oldPrice ? `<span class="old-price">${money(product.oldPrice)}</span>` : ""}
+          <span class="price">${money(product.price)}</span>
+        </div>
+        <div class="product-buttons">
+          <button class="buy" data-buy="${product.id}">CONSULTAR / COMPRAR</button>
+          <button class="filter" data-cart="${product.id}">＋ AGREGAR AL PEDIDO</button>
+        </div>
+      </div>
+    </article>
+  `).join("");
+
+  document.getElementById("emptyMessage").style.display =
+    filtered.length ? "none" : "block";
+}
+
+function chooseCategory(category) {
+  selectedCategory = category;
+  document.querySelectorAll(".filter[data-category]").forEach(button => {
+    button.classList.toggle("active", button.dataset.category === category);
+  });
+  renderProducts();
+}
+
+document.getElementById("filters").addEventListener("click", event => {
+  const button = event.target.closest("[data-category]");
+  if (button) chooseCategory(button.dataset.category);
+});
+
+document.querySelectorAll(".nav [data-category], .category[data-category], footer [data-category]")
+.forEach(link => {
+  link.addEventListener("click", () => chooseCategory(link.dataset.category));
+});
+
+document.getElementById("showAll").addEventListener("click", () => {
+  chooseCategory("Todos");
+  searchInput.value = "";
+});
+
+document.getElementById("searchForm").addEventListener("submit", event => {
+  event.preventDefault();
+  renderProducts();
+  document.getElementById("productos").scrollIntoView({behavior:"smooth"});
+});
+
+searchInput.addEventListener("input", renderProducts);
+
+grid.addEventListener("click", event => {
+  const buyButton = event.target.closest("[data-buy]");
+  const cartButton = event.target.closest("[data-cart]");
+
+  if (buyButton) {
+    const product = PRODUCTS.find(item => item.id === Number(buyButton.dataset.buy));
+    const message = `Hola, quiero consultar/comprar: ${product.name}. Precio publicado: ${money(product.price)}. ¿Está disponible?`;
+    const url = whatsappLink(message);
+    if (url === "#") {
+      alert("Configura tu número de WhatsApp en WHATSAPP_NUMBER antes de usar los botones de compra.");
+    } else {
+      window.open(url, "_blank", "noopener");
+    }
+  }
+
+  if (cartButton) {
+    const product = PRODUCTS.find(item => item.id === Number(cartButton.dataset.cart));
+    cart.push(product);
+    document.getElementById("cartCount").textContent = cart.length;
+    cartButton.textContent = "✓ AGREGADO";
+  }
+});
+
+document.getElementById("cartButton").addEventListener("click", () => {
+  if (!cart.length) {
+    alert("Tu pedido está vacío. Agrega productos desde el catálogo.");
+    return;
+  }
+
+  const summary = cart.map(item =>
+    `• ${item.name} — ${money(item.price)}`
+  ).join("\n");
+
+  const total = cart.reduce((sum, item) => sum + Number(item.price), 0);
+  const message = `Hola, quiero hacer este pedido en STYLES GAMER:\n\n${summary}\n\nTotal referencial: ${money(total)}\n¿Me confirman disponibilidad y entrega?`;
+  const url = whatsappLink(message);
+
+  if (url === "#") {
+    alert("Configura tu número de WhatsApp en WHATSAPP_NUMBER antes de enviar pedidos.");
+  } else {
+    window.open(url, "_blank", "noopener");
+  }
+});
+
+document.getElementById("year").textContent = new Date().getFullYear();
+
+syncWhatsAppLinks();
+renderProducts();
+</script>
 </body>
-
 </html>
