@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#101014">
+<meta name="theme-color" content="#e10600">
 <title>STYLES GAMER | Tienda Gamer en Bolivia</title>
 <meta name="description" content="Videojuegos, consolas y accesorios gamer en Bolivia. Precios en Bs y pedidos por WhatsApp.">
 <meta property="og:title" content="STYLES GAMER | Tienda Gamer">
@@ -119,10 +119,13 @@ footer a:hover{color:var(--cyan)}
 .clear{width:100%;margin-top:8px;border:0;background:none;color:var(--muted);font-size:12px;text-decoration:underline}
 .toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,30px);background:#17171b;color:#fff;padding:12px 20px;border-radius:6px;font-size:13px;opacity:0;pointer-events:none;transition:.3s;z-index:120;max-width:90%;text-align:center}
 .toast.show{opacity:1;transform:translate(-50%,0)}
+.logo img{display:block;height:48px;width:auto}
+.footer-brand .logo img{height:56px}
 @media(min-width:601px){.header{position:sticky;top:0}}
 @media(max-width:900px){.top{gap:15px;padding:16px 18px}.products{grid-template-columns:repeat(3,minmax(0,1fr))}.categories,.benefits{grid-template-columns:repeat(2,1fr)}main{padding:0 18px}.action-text{display:none}}
-@media(max-width:600px){html{scroll-padding-top:20px}.promo{font-size:10px}.top{padding:14px;flex-wrap:wrap;gap:12px}.logo{font-size:22px}.search{order:3;flex-basis:100%;max-width:none}.nav-inner{padding:0 15px;gap:22px}main{padding:0 12px}.hero{min-height:290px;margin-top:14px}.hero-content{padding:30px 23px}.hero-decoration{right:0;font-size:115px}.hero h1{font-size:35px}.hero p{font-size:13px}.benefits{gap:8px}.benefit{padding:12px 8px;gap:8px}.benefit .emoji{font-size:21px}.benefit strong,.benefit small{font-size:10px}.section-head h2{font-size:19px}.categories{gap:9px}.category{padding:15px 10px;gap:9px}.category .icon{font-size:26px}.category strong{font-size:11px}.category small{font-size:10px}.products{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.product-image{height:150px}.product-info{padding:10px}.product h3{font-size:12px;min-height:51px}.price{font-size:18px}.buy,.filter{font-size:10px;padding:10px 4px}.promo-banner{padding:22px 16px;flex-direction:column;align-items:flex-start}.footer-inner{padding:30px 18px;grid-template-columns:1fr 1fr;gap:22px}.footer-brand{grid-column:1/-1}}
+@media(max-width:600px){html{scroll-padding-top:20px}.promo{font-size:10px}.top{padding:14px;flex-wrap:wrap;gap:12px}.logo img{height:38px}.search{order:3;flex-basis:100%;max-width:none}.nav-inner{padding:0 15px;gap:22px}main{padding:0 12px}.hero{min-height:290px;margin-top:14px}.hero-content{padding:30px 23px}.hero-decoration{right:0;font-size:115px}.hero h1{font-size:35px}.hero p{font-size:13px}.benefits{gap:8px}.benefit{padding:12px 8px;gap:8px}.benefit .emoji{font-size:21px}.benefit strong,.benefit small{font-size:10px}.section-head h2{font-size:19px}.categories{gap:9px}.category{padding:15px 10px;gap:9px}.category .icon{font-size:26px}.category strong{font-size:11px}.category small{font-size:10px}.products{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.product-image{height:150px}.product-info{padding:10px}.product h3{font-size:12px;min-height:51px}.price{font-size:18px}.buy,.filter{font-size:10px;padding:10px 4px}.promo-banner{padding:22px 16px;flex-direction:column;align-items:flex-start}.footer-inner{padding:30px 18px;grid-template-columns:1fr 1fr;gap:22px}.footer-brand{grid-column:1/-1}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
 </style>
 </head>
 <body>
@@ -131,7 +134,7 @@ footer a:hover{color:var(--cyan)}
 
 <header class="header">
   <div class="top">
-    <a class="logo" href="#" aria-label="Styles Gamer, inicio">STYLES <span>GAMER</span></a>
+    <a class="logo" href="#" aria-label="Styles Gamer, inicio"><img src="logo.png.png" alt="Styles Gamer" height="48"></a>
     <form class="search" id="searchForm" role="search">
       <input id="searchInput" type="search" placeholder="¿Qué producto estás buscando?" aria-label="Buscar productos">
       <button type="submit" aria-label="Buscar">⌕</button>
@@ -222,7 +225,7 @@ footer a:hover{color:var(--cyan)}
 <footer id="contacto">
   <div class="footer-inner">
     <div class="footer-brand">
-      <a class="logo" href="#">STYLES <span>GAMER</span></a>
+      <a class="logo" href="#"><img src="logo.png.png" alt="Styles Gamer" height="56"></a>
       <p>Tu espacio gamer para encontrar videojuegos, consolas y accesorios.</p>
       <p>Bolivia · Precios en Bs</p>
     </div>
