@@ -121,6 +121,25 @@ footer a:hover{color:var(--cyan)}
 .toast.show{opacity:1;transform:translate(-50%,0)}
 .logo img{display:block;height:100px;width:auto}
 .footer-brand .logo img{height:110px}
+/* Más imágenes y detalles */
+.hero{min-height:380px;box-shadow:0 0 40px #00d9ff22;border:1px solid #00d9ff33}
+.hero h1 span{background:linear-gradient(90deg,#fff,var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero-img{position:absolute;right:0;top:0;width:62%;height:100%;object-fit:cover;opacity:.6;-webkit-mask-image:linear-gradient(90deg,transparent,#000 65%);mask-image:linear-gradient(90deg,transparent,#000 65%)}
+.category{position:relative;min-height:150px;overflow:hidden;align-items:flex-end}
+.category img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.5;transition:.4s}
+.category:hover img{transform:scale(1.08);opacity:.7}
+.category::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#000d,transparent 75%)}
+.category>*:not(img){position:relative;z-index:1}
+.section-head h2{border-left:4px solid var(--cyan);padding-left:12px}
+.product:hover{border-color:var(--cyan);box-shadow:0 0 22px #00d9ff33}
+.product-image{background:linear-gradient(135deg,#f1f1f4,#e2e2e9)}
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.shot{position:relative;margin:0;border-radius:8px;overflow:hidden;aspect-ratio:4/3;background:#1d1d27;border-bottom:4px solid var(--cyan)}
+.shot img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.shot:hover img{transform:scale(1.06)}
+.shot span{position:absolute;left:0;right:0;bottom:0;padding:36px 14px 12px;background:linear-gradient(0deg,#000c,transparent);font-size:12px;font-weight:bold;color:#fff;letter-spacing:.5px}
+.promo-banner{background-size:cover;background-position:center;border:1px solid #00d9ff33}
+@media(max-width:600px){.gallery{grid-template-columns:1fr}.hero-img{width:100%;opacity:.3}}
 @media(min-width:901px){
 .top .logo{position:relative;z-index:60;align-self:flex-start;margin-bottom:-14px}
 .top .logo img{filter:drop-shadow(0 6px 10px #000a)}
@@ -164,11 +183,12 @@ footer a:hover{color:var(--cyan)}
   <section class="hero">
     <div class="hero-content">
       <div class="eyebrow">TU PRÓXIMO NIVEL COMIENZA AQUÍ</div>
-      <h1>VIVE EL JUEGO.<br>ELIGE TU NIVEL.</h1>
+      <h1>VIVE EL JUEGO.<br><span>ELIGE TU NIVEL.</span></h1>
       <p>Descubre videojuegos, consolas y accesorios para llevar tu experiencia gamer más lejos.</p>
       <a href="#productos" class="btn">EXPLORAR CATÁLOGO →</a>
     </div>
     <div class="hero-decoration" aria-hidden="true">🎮</div>
+    <img class="hero-img" src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=800&q=75" alt="" onerror="this.remove()">
   </section>
 
   <section class="benefits" aria-label="Ventajas">
@@ -181,10 +201,10 @@ footer a:hover{color:var(--cyan)}
   <section class="section">
     <div class="section-head"><h2>EXPLORA POR CATEGORÍA</h2><p>Encuentra lo que buscas más rápido.</p></div>
     <div class="categories">
-      <a href="#productos" class="category" data-category="Consolas"><span class="icon">🎮</span><div><strong>CONSOLAS</strong><small>PlayStation y más</small></div></a>
-      <a href="#productos" class="category" data-category="Juegos PS5"><span class="icon">💿</span><div><strong>JUEGOS PS5</strong><small>La nueva generación</small></div></a>
-      <a href="#productos" class="category" data-category="Juegos PS4"><span class="icon">🕹️</span><div><strong>JUEGOS PS4</strong><small>Grandes clásicos</small></div></a>
-      <a href="#productos" class="category" data-category="Accesorios"><span class="icon">🎧</span><div><strong>ACCESORIOS</strong><small>Mejora tu setup</small></div></a>
+      <a href="#productos" class="category" data-category="Consolas"><img src="https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&fit=crop&w=800&q=75" alt="" loading="lazy" onerror="this.remove()"><span class="icon">🎮</span><div><strong>CONSOLAS</strong><small>PlayStation y más</small></div></a>
+      <a href="#productos" class="category" data-category="Juegos PS5"><img src="https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf?auto=format&fit=crop&w=800&q=75" alt="" loading="lazy" onerror="this.remove()"><span class="icon">💿</span><div><strong>JUEGOS PS5</strong><small>La nueva generación</small></div></a>
+      <a href="#productos" class="category" data-category="Juegos PS4"><img src="https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?auto=format&fit=crop&w=800&q=75" alt="" loading="lazy" onerror="this.remove()"><span class="icon">🕹️</span><div><strong>JUEGOS PS4</strong><small>Grandes clásicos</small></div></a>
+      <a href="#productos" class="category" data-category="Accesorios"><img src="https://images.unsplash.com/photo-1527814050087-3793815479db?auto=format&fit=crop&w=800&q=75" alt="" loading="lazy" onerror="this.remove()"><span class="icon">🎧</span><div><strong>ACCESORIOS</strong><small>Mejora tu setup</small></div></a>
     </div>
   </section>
 
@@ -210,7 +230,16 @@ footer a:hover{color:var(--cyan)}
     <div class="empty" id="emptyMessage">No encontramos productos con esa búsqueda.</div>
   </section>
 
-  <section class="promo-banner" id="ofertas">
+  <section class="section" aria-label="Galería">
+    <div class="section-head"><h2>ARMA TU SETUP</h2><p>Inspiración para tu espacio gamer.</p></div>
+    <div class="gallery">
+      <figure class="shot"><img src="https://images.unsplash.com/photo-1593305841991-05c297ba4575?auto=format&fit=crop&w=800&q=75" alt="SETUP PRO" loading="lazy" onerror="this.remove()"><span>SETUP PRO</span></figure>
+      <figure class="shot"><img src="https://images.unsplash.com/photo-1616588589676-62b3bd4ff6d2?auto=format&fit=crop&w=800&q=75" alt="ILUMINACIÓN RGB" loading="lazy" onerror="this.remove()"><span>ILUMINACIÓN RGB</span></figure>
+      <figure class="shot"><img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=800&q=75" alt="JUEGA A TU ESTILO" loading="lazy" onerror="this.remove()"><span>JUEGA A TU ESTILO</span></figure>
+    </div>
+  </section>
+
+  <section class="promo-banner" id="ofertas" style="background-image:linear-gradient(90deg,#14141a 35%,#14141acc),url('https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=800&q=75')">
     <div>
       <div class="eyebrow">ZONA DE OFERTAS</div>
       <h2>¡EQUÍPATE PARA JUGAR!</h2>
