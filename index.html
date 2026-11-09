@@ -198,6 +198,30 @@ footer a:hover{color:var(--cyan)}
 .d-card p{margin:0}
 .d-card ul{padding-left:20px;margin:0}
 @media(max-width:800px){.d-main,.d-cards{grid-template-columns:1fr;gap:22px}.gallery-d{grid-template-columns:1fr}.thumbs{flex-direction:row;order:2;overflow-x:auto}.thumb{width:70px;height:70px;flex:none}.d-title{font-size:22px}.d-wrap{padding:14px 14px 40px}.d-bar-in{padding:10px 14px}.d-price .now{font-size:28px}}
+/* Menú desplegable */
+.nav{position:relative}
+.nav-inner{overflow:visible;gap:30px}
+.nav-inner>a,.dd-btn{font-size:14px;font-weight:600;padding:15px 0}
+.dd{position:relative}
+.dd-btn{background:none;border:0;color:#fff;white-space:nowrap;display:flex;align-items:center;gap:6px}
+.dd-btn i,.dd-item>a i{font-style:normal;opacity:.65;font-size:10px}
+.dd:hover>.dd-btn,.dd.open>.dd-btn{color:var(--cyan)}
+.dd-menu{display:none;position:absolute;left:-14px;top:100%;min-width:250px;background:#fff;border-radius:12px;box-shadow:0 12px 35px #0005;padding:10px;z-index:70}
+.dd-item{position:relative}
+.nav .dd-menu a{display:flex;justify-content:space-between;align-items:center;gap:14px;color:#333;font-size:14px;font-weight:600;padding:11px 14px;border-radius:8px;white-space:normal;line-height:1.3}
+.nav .dd-menu a:hover{background:#eefbfd;color:#087d91}
+.dd-item.has-sub>a i{font-size:16px}
+.dd-sub{display:none;position:absolute;left:calc(100% - 4px);top:-10px;min-width:240px;background:#fff;border-radius:12px;box-shadow:0 12px 35px #0005;padding:10px}
+.nav .dd-sub a{color:#666;font-weight:500}
+@media(min-width:901px) and (hover:hover){.dd:hover>.dd-menu{display:block}.dd-item:hover>.dd-sub{display:block}}
+.dd.open>.dd-menu{display:block}
+.dd-item.open>.dd-sub{display:block}
+@media(max-width:900px){
+.nav-inner{overflow-x:auto;scrollbar-width:none;gap:24px;padding:0 18px}
+.nav-inner::-webkit-scrollbar{display:none}
+.dd-menu{position:fixed;left:10px;right:10px;top:var(--navb,120px);min-width:0;max-height:70vh;overflow:auto;margin:0;z-index:80}
+.dd-sub{position:static;box-shadow:none;min-width:0;margin:0 0 6px 12px;background:#f4f9fa;padding:6px}
+}
 @media(min-width:601px){.header{position:sticky;top:0}}
 @media(max-width:900px){.top{gap:15px;padding:16px 18px}.products{grid-template-columns:repeat(3,minmax(0,1fr))}.categories,.benefits{grid-template-columns:repeat(2,1fr)}main{padding:0 18px}.action-text{display:none}}
 @media(max-width:600px){html{scroll-padding-top:20px}.promo{font-size:10px}.top{padding:14px;flex-wrap:wrap;gap:12px}.logo img{height:68px}.search{order:3;flex-basis:100%;max-width:none}.nav-inner{padding:0 15px;gap:22px}main{padding:0 12px}.hero{min-height:290px;margin-top:14px}.hero-content{padding:30px 23px}.hero-decoration{right:0;font-size:115px}.hero h1{font-size:35px}.hero p{font-size:13px}.benefits{gap:8px}.benefit{padding:12px 8px;gap:8px}.benefit .emoji{font-size:21px}.benefit strong,.benefit small{font-size:10px}.section-head h2{font-size:19px}.categories{gap:9px}.category{padding:15px 10px;gap:9px}.category .icon{font-size:26px}.category strong{font-size:11px}.category small{font-size:10px}.products{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.product-image{height:auto}.product-info{padding:10px}.product h3{font-size:12px;min-height:51px}.price{font-size:18px}.buy,.filter{font-size:10px;padding:10px 4px}.promo-banner{padding:22px 16px;flex-direction:column;align-items:flex-start}.footer-inner{padding:30px 18px;grid-template-columns:1fr 1fr;gap:22px}.footer-brand{grid-column:1/-1}}
@@ -222,17 +246,59 @@ footer a:hover{color:var(--cyan)}
   </div>
   <nav class="nav" aria-label="Categorías">
     <div class="nav-inner">
-      <a class="all" href="#productos" data-category="Todos">☰ TODOS LOS PRODUCTOS</a>
-      <a href="#productos" data-category="Consolas">CONSOLAS</a>
-      <a href="#productos" data-category="Mandos PlayStation">MANDOS PLAYSTATION</a>
-      <a href="#productos" data-category="Mandos Nintendo">MANDOS NINTENDO</a>
-      <a href="#productos" data-category="Juegos PS5">JUEGOS PS5</a>
-      <a href="#productos" data-category="Juegos PS4">JUEGOS PS4</a>
-      <a href="#productos" data-category="Juegos NSW2">JUEGOS NSW2</a>
-      <a href="#productos" data-category="Juegos NSW1">JUEGOS NSW1</a>
-      <a href="#productos" data-category="Accesorios">ACCESORIOS</a>
-      <a href="#ofertas">OFERTAS</a>
-      <a href="#contacto">CONTACTO</a>
+      <a class="all" href="#productos" data-category="Todos">Todos los productos</a>
+      <div class="dd">
+        <button class="dd-btn" type="button" aria-haspopup="true">Videojuegos y Consolas <i>▾</i></button>
+        <div class="dd-menu">
+        <div class="dd-item has-sub"><a href="#productos" data-category="Consolas">Consolas <i>›</i></a>
+        <div class="dd-sub">
+          <a href="#productos" data-category="Consolas" data-q="playstation 5">Consolas PS5</a>
+          <a href="#productos" data-category="Consolas" data-q="playstation 4">Consolas PS4</a>
+          <a href="#productos" data-category="Consolas" data-q="switch 2">Consolas Nintendo Switch 2</a>
+          <a href="#productos" data-category="Consolas" data-q="switch">Consolas Nintendo Switch</a>
+        </div></div>
+        <div class="dd-item has-sub"><a href="#productos" data-category="Todos" data-q="juegos">Videojuegos <i>›</i></a>
+        <div class="dd-sub">
+          <a href="#productos" data-category="Juegos PS5">Juegos PS5</a>
+          <a href="#productos" data-category="Juegos PS4">Juegos PS4</a>
+          <a href="#productos" data-category="Juegos NSW2">Juegos Nintendo Switch 2</a>
+          <a href="#productos" data-category="Juegos NSW1">Juegos Nintendo Switch</a>
+        </div></div>
+        </div>
+      </div>
+      <div class="dd">
+        <button class="dd-btn" type="button" aria-haspopup="true">Accesorios de Consola <i>▾</i></button>
+        <div class="dd-menu">
+        <div class="dd-item has-sub"><a href="#productos" data-category="Todos" data-q="mandos">Mandos <i>›</i></a>
+        <div class="dd-sub">
+          <a href="#productos" data-category="Mandos PlayStation" data-q="ps5">Mandos PS5</a>
+          <a href="#productos" data-category="Mandos PlayStation" data-q="ps4">Mandos PS4</a>
+          <a href="#productos" data-category="Mandos Nintendo" data-q="switch 2">Mandos Switch 2</a>
+          <a href="#productos" data-category="Mandos Nintendo">Mandos Switch</a>
+        </div></div>
+        <div class="dd-item"><a href="#productos" data-category="Accesorios" data-q="audifonos">Audífonos</a></div>
+        <div class="dd-item"><a href="#productos" data-category="Accesorios" data-q="teclado">Teclados</a></div>
+        <div class="dd-item"><a href="#productos" data-category="Accesorios" data-q="mouse">Mouse</a></div>
+        <div class="dd-item"><a href="#productos" data-category="Accesorios">Todos los accesorios</a></div>
+        </div>
+      </div>
+      <div class="dd">
+        <button class="dd-btn" type="button" aria-haspopup="true">Gift Cards <i>▾</i></button>
+        <div class="dd-menu">
+        <div class="dd-item"><a href="#productos" data-category="Gift Cards" data-q="playstation network">PlayStation Network</a></div>
+        <div class="dd-item"><a href="#productos" data-category="Gift Cards" data-q="nintendo e-shop">Nintendo E-shop</a></div>
+        <div class="dd-item"><a href="#productos" data-category="Gift Cards" data-q="xbox">Xbox</a></div>
+        <div class="dd-item"><a href="#productos" data-category="Gift Cards" data-q="roblox">Roblox</a></div>
+        <div class="dd-item"><a href="#productos" data-category="Gift Cards" data-q="itunes">iTunes</a></div>
+        <div class="dd-item"><a href="#productos" data-category="Gift Cards" data-q="steam">Steam</a></div>
+        <div class="dd-item"><a href="#productos" data-category="Gift Cards" data-q="fortnite">Fortnite</a></div>
+        <div class="dd-item"><a href="#productos" data-category="Gift Cards" data-q="razer">Tarjetas Razer</a></div>
+        <div class="dd-item"><a href="#productos" data-category="Gift Cards" data-q="free fire">Free Fire</a></div>
+        <div class="dd-item"><a href="#productos" data-category="Gift Cards" data-q="pubg">Pubg</a></div>
+        </div>
+      </div>
+      <a href="#ofertas">Ofertas</a>
+      <a href="#contacto">Contacto</a>
     </div>
   </nav>
 </header>
@@ -283,6 +349,7 @@ footer a:hover{color:var(--cyan)}
         <button class="filter" data-category="Juegos NSW2">Juegos NSW2</button>
         <button class="filter" data-category="Juegos NSW1">Juegos NSW1</button>
         <button class="filter" data-category="Accesorios">Accesorios</button>
+        <button class="filter" data-category="Gift Cards">Gift Cards</button>
       </div>
       <select class="sort" id="sort" aria-label="Ordenar productos">
         <option value="default">Ordenar: destacados</option>
@@ -339,6 +406,7 @@ footer a:hover{color:var(--cyan)}
         <a href="#productos" data-category="Juegos NSW2">Juegos NSW2</a>
         <a href="#productos" data-category="Juegos NSW1">Juegos NSW1</a>
         <a href="#productos" data-category="Accesorios">Accesorios</a>
+        <a href="#productos" data-category="Gift Cards">Gift Cards</a>
       </div>
     </div>
     <div>
@@ -390,7 +458,7 @@ const PRODUCTS = [
   {id:7,name:"Mouse Gamer RGB",category:"Accesorios",price:140,oldPrice:0,emoji:"🖱️",stock:false,image:"https://images.unsplash.com/photo-1527814050087-3793815479db?auto=format&fit=crop&w=600&q=80"},
   {id:8,name:"PlayStation 4 SLIM",category:"Consolas",price:4200,oldPrice:4500,emoji:"🎮",stock:true,image:"https://images.unsplash.com/photo-1486401899868-0e435ed85128?auto=format&fit=crop&w=600&q=80"}
   /* Para agregar uno nuevo, copia una línea (sin olvidar la coma) y usa una de estas categorías:
-     Consolas, Mandos PlayStation, Mandos Nintendo, Juegos PS5, Juegos PS4, Juegos NSW2, Juegos NSW1, Accesorios */
+     Consolas, Mandos PlayStation, Mandos Nintendo, Juegos PS5, Juegos PS4, Juegos NSW2, Juegos NSW1, Accesorios, Gift Cards */
 ];
 
 const $ = s => document.querySelector(s);
@@ -568,12 +636,23 @@ function shiftImg(dir) {
   dIdx = (dIdx + dir + n) % n;
   renderDetail();
 }
+const navEl = $(".nav");
+function closeMenus() {
+  navEl.classList.remove("open");
+  document.querySelectorAll(".dd.open,.dd-item.open").forEach(x => x.classList.remove("open"));
+}
+window.addEventListener("scroll", () => { if (matchMedia("(max-width:900px)").matches) document.querySelectorAll(".dd.open").forEach(x => x.classList.remove("open")); }, {passive:true});
 window.addEventListener("popstate", routeDetail);
 
 document.addEventListener("click", e => {
   const t = e.target;
+  if (!t.closest(".nav")) closeMenus();
+  const ddb = t.closest(".dd-btn");
+  if (ddb) { const dd = ddb.parentElement, was = dd.classList.contains("open"); document.querySelectorAll(".dd.open").forEach(x => x.classList.remove("open")); if (!was) dd.classList.add("open"); document.documentElement.style.setProperty("--navb", navEl.getBoundingClientRect().bottom + "px"); }
+  const hs = t.closest(".has-sub > a");
+  if (hs && matchMedia("(max-width:900px)").matches) { e.preventDefault(); hs.parentElement.classList.toggle("open"); return; }
   const cat = t.closest("[data-category]");
-  if (cat) { chooseCategory(cat.dataset.category); closeDetail(); }
+  if (cat) { $("#searchInput").value = cat.dataset.q || ""; chooseCategory(cat.dataset.category); closeDetail(); closeMenus(); }
   const op = t.closest("[data-open]");
   if (op && !t.closest("button")) openDetail(op.dataset.open);
   if (t.closest("[data-d-close]")) closeDetail();
@@ -617,7 +696,7 @@ document.addEventListener("click", e => {
 
 $("#cartButton").onclick = () => setCart(true);
 $("#closeCart").onclick = $("#overlay").onclick = () => setCart(false);
-document.addEventListener("keydown", e => { if (e.key === "Escape") { setCart(false); closeDetail(); } });
+document.addEventListener("keydown", e => { if (e.key === "Escape") { setCart(false); closeDetail(); closeMenus(); } });
 $("#clearCart").onclick = () => { cart = {}; renderCart(); };
 $("#sendOrder").onclick = () => {
   const lines = Object.keys(cart).map(id => `• ${cart[id]} x ${find(id).name} — ${money(find(id).price * cart[id])}`).join("\n");
