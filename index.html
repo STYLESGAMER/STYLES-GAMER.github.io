@@ -124,7 +124,10 @@ footer a:hover{color:var(--cyan)}
 /* Más imágenes y detalles */
 .hero{min-height:380px;box-shadow:0 0 40px #00d9ff22;border:1px solid #00d9ff33}
 .hero h1 span{background:linear-gradient(90deg,#fff,var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}
-.hero-img{position:absolute;right:0;top:0;width:62%;height:100%;object-fit:cover;opacity:.6;-webkit-mask-image:linear-gradient(90deg,transparent,#000 65%);mask-image:linear-gradient(90deg,transparent,#000 65%)}
+.hero{min-height:440px}
+.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 20%;z-index:0}
+.hero::after{content:"";position:absolute;inset:0;z-index:0;background:linear-gradient(90deg,#0b0b10f2 0%,#0b0b10c0 38%,#0b0b1000 75%)}
+.hero-decoration{display:none}
 .category{position:relative;min-height:150px;overflow:hidden;align-items:flex-end}
 .category img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.5;transition:.4s}
 .category:hover img{transform:scale(1.08);opacity:.7}
@@ -134,12 +137,12 @@ footer a:hover{color:var(--cyan)}
 .product:hover{border-color:var(--cyan);box-shadow:0 0 22px #00d9ff33}
 .product-image{background:#fff}
 .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
-.shot{position:relative;margin:0;border-radius:8px;overflow:hidden;aspect-ratio:4/3;background:#1d1d27;border-bottom:4px solid var(--cyan)}
+.shot{position:relative;margin:0;border-radius:8px;overflow:hidden;aspect-ratio:16/9;background:#1d1d27;border-bottom:4px solid var(--cyan)}
 .shot img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
 .shot:hover img{transform:scale(1.06)}
 .shot span{position:absolute;left:0;right:0;bottom:0;padding:36px 14px 12px;background:linear-gradient(0deg,#000c,transparent);font-size:12px;font-weight:bold;color:#fff;letter-spacing:.5px}
 .promo-banner{background-size:cover;background-position:center;border:1px solid #00d9ff33}
-@media(max-width:600px){.gallery{grid-template-columns:1fr}.hero-img{width:100%;opacity:.3}}
+@media(max-width:600px){.gallery{grid-template-columns:1fr}.hero-img{object-position:68% center}.hero::after{background:linear-gradient(90deg,#0b0b10f2 0%,#0b0b10c0 60%,#0b0b1066 100%)}}
 @media(min-width:901px){
 .top .logo{position:relative;z-index:60;align-self:flex-start;margin-bottom:-14px}
 .top .logo img{filter:drop-shadow(0 6px 10px #000a)}
@@ -312,7 +315,7 @@ footer a:hover{color:var(--cyan)}
       <a href="#productos" class="btn">EXPLORAR CATÁLOGO →</a>
     </div>
     <div class="hero-decoration" aria-hidden="true">🎮</div>
-    <img class="hero-img" src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=800&q=75" alt="" onerror="this.remove()">
+    <img class="hero-img" src="hero.jpg" alt="" onerror="this.remove()">
   </section>
 
   <section class="benefits" aria-label="Ventajas">
@@ -367,7 +370,7 @@ footer a:hover{color:var(--cyan)}
     <div class="section-head"><h2>ARMA TU SETUP</h2><p>Inspiración para tu espacio gamer.</p></div>
     <div class="gallery">
       <figure class="shot"><img src="https://images.unsplash.com/photo-1593305841991-05c297ba4575?auto=format&fit=crop&w=800&q=75" alt="SETUP PRO" loading="lazy" onerror="this.remove()"><span>SETUP PRO</span></figure>
-      <figure class="shot"><img src="https://images.unsplash.com/photo-1616588589676-62b3bd4ff6d2?auto=format&fit=crop&w=800&q=75" alt="ILUMINACIÓN RGB" loading="lazy" onerror="this.remove()"><span>ILUMINACIÓN RGB</span></figure>
+      <figure class="shot"><img src="setup2.jpg" alt="MUNDOS PARA EXPLORAR" loading="lazy" onerror="this.remove()"><span>MUNDOS PARA EXPLORAR</span></figure>
       <figure class="shot"><img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=800&q=75" alt="JUEGA A TU ESTILO" loading="lazy" onerror="this.remove()"><span>JUEGA A TU ESTILO</span></figure>
     </div>
   </section>
