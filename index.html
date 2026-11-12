@@ -230,6 +230,14 @@ footer a:hover{color:var(--cyan)}
 .tt{display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:#ffffff14;color:#fff;transition:background .2s,color .2s,transform .2s}
 .tt svg{width:20px;height:20px;fill:currentColor}
 .tt:hover{background:var(--cyan);color:#111;transform:translateY(-2px)}
+/* Arma tu fiesta */
+a.shot{display:block;cursor:pointer}
+.shot .em{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:90px;background:linear-gradient(135deg,#4c1d95,#be185d,#f59e0b)}
+.shot img{position:relative;z-index:1}
+.shot span{z-index:2}
+.gallery.one{grid-template-columns:1fr}
+.gallery.one .shot{aspect-ratio:21/8}
+@media(max-width:600px){.gallery.one .shot{aspect-ratio:4/3}}
 @media(min-width:601px){.header{position:sticky;top:0}}
 @media(max-width:900px){.top{gap:15px;padding:16px 18px}.products{grid-template-columns:repeat(3,minmax(0,1fr))}.categories,.benefits{grid-template-columns:repeat(2,1fr)}main{padding:0 18px}.action-text{display:none}}
 @media(max-width:600px){html{scroll-padding-top:20px}.promo{font-size:10px}.top{padding:14px;flex-wrap:wrap;gap:12px}.logo img{height:68px}.search{order:3;flex-basis:100%;max-width:none}.nav-inner{padding:0 15px;gap:22px}main{padding:0 12px}.hero{min-height:290px;margin-top:14px}.hero-content{padding:30px 23px}.hero-decoration{right:0;font-size:115px}.hero h1{font-size:35px}.hero p{font-size:13px}.benefits{gap:8px}.benefit{padding:12px 8px;gap:8px}.benefit .emoji{font-size:21px}.benefit strong,.benefit small{font-size:10px}.section-head h2{font-size:19px}.categories{gap:9px}.category{padding:15px 10px;gap:9px}.category .icon{font-size:26px}.category strong{font-size:11px}.category small{font-size:10px}.products{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.product-image{height:auto}.product-info{padding:10px}.product h3{font-size:12px;min-height:51px}.price{font-size:18px}.buy,.filter{font-size:10px;padding:10px 4px}.promo-banner{padding:22px 16px;flex-direction:column;align-items:flex-start}.footer-inner{padding:30px 18px;grid-template-columns:1fr 1fr;gap:22px}.footer-brand{grid-column:1/-1}}
@@ -291,6 +299,7 @@ footer a:hover{color:var(--cyan)}
         <div class="dd-item"><a href="#productos" data-category="Accesorios">Todos los accesorios</a></div>
         </div>
       </div>
+      <a href="#productos" data-category="Parlantes">Parlantes</a>
       <div class="dd">
         <button class="dd-btn" type="button" aria-haspopup="true">Gift Cards <i>▾</i></button>
         <div class="dd-menu">
@@ -358,6 +367,7 @@ footer a:hover{color:var(--cyan)}
         <button class="filter" data-category="Juegos NSW2">Juegos NSW2</button>
         <button class="filter" data-category="Juegos NSW1">Juegos NSW1</button>
         <button class="filter" data-category="Accesorios">Accesorios</button>
+        <button class="filter" data-category="Parlantes">Parlantes</button>
         <button class="filter" data-category="Gift Cards">Gift Cards</button>
       </div>
       <select class="sort" id="sort" aria-label="Ordenar productos">
@@ -372,12 +382,10 @@ footer a:hover{color:var(--cyan)}
     <div class="empty" id="emptyMessage">No encontramos productos con esa búsqueda.</div>
   </section>
 
-  <section class="section" aria-label="Galería">
-    <div class="section-head"><h2>ARMA TU SETUP</h2><p>Inspiración para tu espacio gamer.</p></div>
-    <div class="gallery">
-      <figure class="shot"><img src="https://images.unsplash.com/photo-1593305841991-05c297ba4575?auto=format&fit=crop&w=800&q=75" alt="SETUP PRO" loading="lazy" onerror="this.remove()"><span>SETUP PRO</span></figure>
-      <figure class="shot"><img src="setup2.jpg" alt="MUNDOS PARA EXPLORAR" loading="lazy" onerror="this.remove()"><span>MUNDOS PARA EXPLORAR</span></figure>
-      <figure class="shot"><img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=800&q=75" alt="JUEGA A TU ESTILO" loading="lazy" onerror="this.remove()"><span>JUEGA A TU ESTILO</span></figure>
+  <section class="section" aria-label="Arma tu fiesta">
+    <div class="section-head"><h2>ARMA TU FIESTA</h2><p>Música, luces y diversión para tu próxima reunión.</p></div>
+    <div class="gallery one">
+      <a class="shot" href="#productos" data-category="Parlantes" data-q="jbl"><div class="em">🔊</div><img src="jbl.jpg" alt="Parlantes JBL" loading="lazy" onerror="this.onerror=function(){this.remove()};this.src='https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&w=800&q=75'"><span>PARLANTES JBL · VER PARLANTES →</span></a>
     </div>
   </section>
 
@@ -415,6 +423,7 @@ footer a:hover{color:var(--cyan)}
         <a href="#productos" data-category="Juegos NSW2">Juegos NSW2</a>
         <a href="#productos" data-category="Juegos NSW1">Juegos NSW1</a>
         <a href="#productos" data-category="Accesorios">Accesorios</a>
+        <a href="#productos" data-category="Parlantes">Parlantes</a>
         <a href="#productos" data-category="Gift Cards">Gift Cards</a>
       </div>
     </div>
@@ -466,9 +475,19 @@ const PRODUCTS = [
   {id:5,name:"EA SPORTS FC27",category:"Juegos PS5",price:750,oldPrice:800,emoji:"⚽",stock:true,image:"https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?auto=format&fit=crop&w=600&q=80"},
   {id:6,name:"God of War Ragnarök PS4",category:"Juegos PS4",price:250,oldPrice:300,emoji:"⚔️",stock:true,image:"https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=600&q=80"},
   {id:7,name:"Mouse Gamer RGB",category:"Accesorios",price:140,oldPrice:0,emoji:"🖱️",stock:false,image:"https://images.unsplash.com/photo-1527814050087-3793815479db?auto=format&fit=crop&w=600&q=80"},
-  {id:8,name:"PlayStation 4 SLIM",category:"Consolas",price:4200,oldPrice:4500,emoji:"🎮",stock:true,image:"https://images.unsplash.com/photo-1486401899868-0e435ed85128?auto=format&fit=crop&w=600&q=80"}
+  {id:8,name:"PlayStation 4 SLIM",category:"Consolas",price:4200,oldPrice:4500,emoji:"🎮",stock:true,image:"https://images.unsplash.com/photo-1486401899868-0e435ed85128?auto=format&fit=crop&w=600&q=80"},
+  /* PARLANTES: ejemplos. Edita nombre, precio y foto (sube jbl-flip6.jpg, etc. a GitHub). */
+  {id:9,name:"Parlante JBL Flip 6",category:"Parlantes",price:950,oldPrice:0,emoji:"🔊",stock:true,image:"jbl-flip6.jpg",
+    description:"Parlante portátil JBL con conexión Bluetooth, sonido potente y diseño resistente. Ideal para llevarlo a reuniones, paseos y fiestas.",
+    specs:["Marca: JBL","Conexión: Bluetooth","Consulta por WhatsApp el modelo exacto y su autonomía"]},
+  {id:10,name:"Parlante JBL Charge 5",category:"Parlantes",price:1450,oldPrice:0,emoji:"🔊",stock:true,image:"jbl-charge5.jpg",
+    description:"Parlante JBL de sonido potente con gran autonomía para que la música no pare durante todo el evento.",
+    specs:["Marca: JBL","Conexión: Bluetooth","Consulta por WhatsApp el modelo exacto y su autonomía"]},
+  {id:11,name:"Parlante JBL PartyBox",category:"Parlantes",price:3200,oldPrice:0,emoji:"🔊",stock:true,image:"jbl-partybox.jpg",
+    description:"Parlante JBL de alta potencia pensado para fiestas, con graves profundos y efectos de luces.",
+    specs:["Marca: JBL","Conexión: Bluetooth","Consulta por WhatsApp el modelo exacto y su autonomía"]}
   /* Para agregar uno nuevo, copia una línea (sin olvidar la coma) y usa una de estas categorías:
-     Consolas, Mandos PlayStation, Mandos Nintendo, Juegos PS5, Juegos PS4, Juegos NSW2, Juegos NSW1, Accesorios, Gift Cards */
+     Consolas, Mandos PlayStation, Mandos Nintendo, Juegos PS5, Juegos PS4, Juegos NSW2, Juegos NSW1, Accesorios, Parlantes, Gift Cards */
 ];
 
 const $ = s => document.querySelector(s);
