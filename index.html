@@ -238,6 +238,7 @@ a.shot{display:block;cursor:pointer}
 .gallery.one{grid-template-columns:1fr}
 .gallery.one .shot{aspect-ratio:21/8}
 @media(max-width:600px){.gallery.one .shot{aspect-ratio:4/3}}
+.off{background:var(--red);color:#fff;font-size:11px;font-weight:900;padding:4px 7px;border-radius:4px;white-space:nowrap}
 @media(min-width:601px){.header{position:sticky;top:0}}
 @media(max-width:900px){.top{gap:15px;padding:16px 18px}.products{grid-template-columns:repeat(3,minmax(0,1fr))}.categories,.benefits{grid-template-columns:repeat(2,1fr)}main{padding:0 18px}.action-text{display:none}}
 @media(max-width:600px){html{scroll-padding-top:20px}.promo{font-size:10px}.top{padding:14px;flex-wrap:wrap;gap:12px}.logo img{height:68px}.search{order:3;flex-basis:100%;max-width:none}.nav-inner{padding:0 15px;gap:22px}main{padding:0 12px}.hero{min-height:290px;margin-top:14px}.hero-content{padding:30px 23px}.hero-decoration{right:0;font-size:115px}.hero h1{font-size:35px}.hero p{font-size:13px}.benefits{gap:8px}.benefit{padding:12px 8px;gap:8px}.benefit .emoji{font-size:21px}.benefit strong,.benefit small{font-size:10px}.section-head h2{font-size:19px}.categories{gap:9px}.category{padding:15px 10px;gap:9px}.category .icon{font-size:26px}.category strong{font-size:11px}.category small{font-size:10px}.products{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.product-image{height:auto}.product-info{padding:10px}.product h3{font-size:12px;min-height:51px}.price{font-size:18px}.buy,.filter{font-size:10px;padding:10px 4px}.promo-banner{padding:22px 16px;flex-direction:column;align-items:flex-start}.footer-inner{padding:30px 18px;grid-template-columns:1fr 1fr;gap:22px}.footer-brand{grid-column:1/-1}}
@@ -469,6 +470,10 @@ const PRODUCTS = [
   {id:1,name:"PlayStation 5 SLIM (BASICA) ",category:"Consolas",price:8300,oldPrice:8500,emoji:"🎮",stock:true,image:"ps5slim.jpg",images:["ps5slim.jpg","ps5slim2.jpg","Guía rápida y accesorios PS5.png"],
     description:"La PS5 Slim ofrece la potencia de la consola en un diseño más compacto y elegante. Disfruta de almacenamiento SSD ultrarrápido con tiempos de carga casi instantáneos, ray tracing para iluminación y reflejos realistas, juegos en alta resolución y el control DualSense con respuesta háptica y gatillos adaptativos.",
     specs:["Plataforma: PS5","Modelo: Slim","Consulta por WhatsApp la capacidad y el contenido de la caja"]},
+  /* PS5 PRO: EDITA EL PRECIO (9999 es solo un ejemplo) y sube ps5pro.jpg a GitHub */
+  {id:12,name:"PlayStation 5 PRO",category:"Consolas",price:9999,oldPrice:0,emoji:"🎮",stock:true,image:"ps5pro.jpg",images:["ps5pro.jpg"],
+    description:"La PS5 Pro ofrece más potencia gráfica, ray tracing mejorado y juegos en alta resolución, para la mejor experiencia de PlayStation 5.",
+    specs:["Plataforma: PS5","Modelo: Pro","Consulta por WhatsApp la capacidad y el contenido de la caja"]},
   {id:2,name:"Control inalámbrico PS5",category:"Mandos PlayStation",price:780,oldPrice:820,emoji:"🕹️",stock:true,image:"https://images.unsplash.com/photo-1600080972464-8e5f35f63d08?auto=format&fit=crop&w=600&q=80"},
   {id:3,name:"Audífonos Gamer",category:"Accesorios",price:220,oldPrice:0,emoji:"🎧",stock:false,image:"https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=600&q=80"},
   {id:4,name:"Teclado Gamer RGB",category:"Accesorios",price:280,oldPrice:320,emoji:"⌨️",stock:false,image:"https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=600&q=80"},
@@ -538,14 +543,14 @@ function renderProducts() {
     const d = discount(p);
     return `<article class="product">
       <div class="product-image" data-open="${p.id}">
-        ${!p.stock ? '<span class="soldout">AGOTADO</span>' : d ? `<span class="sale">-${d}%</span>` : ""}
+        ${!p.stock ? '<span class="soldout">AGOTADO</span>' : ""}
         <img src="${p.image}" alt="${p.name}" loading="lazy" onerror="this.remove()">
         <span class="product-emoji" style="position:absolute;z-index:-1">${p.emoji}</span>
       </div>
       <div class="product-info">
         <div class="product-category">${p.category}</div>
         <h3 data-open="${p.id}">${p.name}</h3>
-        <div class="prices">${d ? `<span class="old-price">${money(p.oldPrice)}</span>` : ""}<span class="price">${money(p.price)}</span></div>
+        <div class="prices"><span class="price">${money(p.price)}</span>${d ? `<span class="off">-${d}%</span>` : ""}</div>
         <div class="buttons">
           <button class="buy" data-buy="${p.id}" ${p.stock ? "" : "disabled"}>CONSULTAR / COMPRAR</button>
           <button class="filter" data-add="${p.id}" ${p.stock ? "" : "disabled"}>＋ AGREGAR AL PEDIDO</button>
@@ -610,7 +615,7 @@ function renderDetail() {
       <div class="gallery-d">
         ${imgs.length > 1 ? `<div class="thumbs">${imgs.map((src, i) => `<button class="thumb ${i === dIdx ? "on" : ""}" data-d-thumb="${i}" aria-label="Foto ${i + 1}"><img src="${src}" alt="" onerror="this.remove()"></button>`).join("")}</div>` : ""}
         <div class="stage">
-          ${!p.stock ? '<span class="soldout">AGOTADO</span>' : d ? `<span class="sale">-${d}%</span>` : ""}
+          ${!p.stock ? '<span class="soldout">AGOTADO</span>' : ""}
           <span class="em">${p.emoji}</span>
           <img src="${imgs[dIdx]}" alt="${p.name}" onerror="this.remove()">
           ${imgs.length > 1 ? `<button class="nav-a l" data-d-prev aria-label="Anterior">‹</button><button class="nav-a r" data-d-next aria-label="Siguiente">›</button><div class="dots">${imgs.map((src, i) => `<span class="dot ${i === dIdx ? "on" : ""}"></span>`).join("")}</div>` : ""}
@@ -619,7 +624,7 @@ function renderDetail() {
       <div>
         <h1 class="d-title">${p.name}</h1>
         <div class="sku">SKU: ${sku}</div>
-        <div class="d-price"><span class="now">${money(p.price)}</span>${d ? `<span class="was">${money(p.oldPrice)}</span><span class="off">-${d}%</span>` : ""}</div>
+        <div class="d-price"><span class="now">${money(p.price)}</span>${d ? `<span class="off">-${d}%</span>` : ""}</div>
         <div class="pill ${p.stock ? "" : "out"}">${p.stock ? (p.qty ? p.qty + " disponibles" : "Disponible") : "Agotado"}</div>
         <ul class="perks">
           <li>Atención directa por WhatsApp</li>
