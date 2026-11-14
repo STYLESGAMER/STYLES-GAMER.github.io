@@ -465,53 +465,57 @@ a.shot{display:block;cursor:pointer}
 /* CONFIGURACIÓN: pon tu número en formato internacional, sin +, espacios ni guiones. */
 const WHATSAPP_NUMBER = "59168800449";
 
+/* CATÁLOGO DESDE GOOGLE SHEETS (opcional).
+   Pega entre las comillas el enlace CSV publicado de tu hoja. Si lo dejas vacío, se usan los productos de este archivo. */
+const PRICES_CSV_URL = "";
+
 /* Productos. stock:false => aparece como AGOTADO. image: usa tus propias fotos (ej. "img/ps5.webp"). */
 const PRODUCTS = [
   {id:1,name:"PlayStation 5 SLIM (BASICA) ",category:"Consolas",price:8300,oldPrice:8500,emoji:"🎮",stock:true,image:"ps5slim.jpg",images:["ps5slim.jpg","ps5slim2.jpg","Guía rápida y accesorios PS5.png"],
     description:"La PS5 Slim ofrece la potencia de la consola en un diseño más compacto y elegante. Disfruta de almacenamiento SSD ultrarrápido con tiempos de carga casi instantáneos, ray tracing para iluminación y reflejos realistas, juegos en alta resolución y el control DualSense con respuesta háptica y gatillos adaptativos.",
     specs:["Plataforma: PS5","Modelo: Slim con lector","Consulta por WhatsApp la capacidad y el contenido de la caja"]},
   /* */
-  {id:12,name:"PlayStation 5 PRO",category:"Consolas",price:16500,oldPrice:0,emoji:"🎮",stock:true,image:"ps5pro.jpg",images:["ps5pro.jpg"],
+  {id:2,name:"PlayStation 5 PRO",category:"Consolas",price:16500,oldPrice:0,emoji:"🎮",stock:true,image:"ps5pro.jpg",images:["ps5pro.jpg"],
     description:"La PS5 Pro ofrece más potencia gráfica, ray tracing mejorado y juegos en alta resolución, para la mejor experiencia de PlayStation 5.",
     specs:["Plataforma: PS5","Modelo: Pro","Consulta por WhatsApp la capacidad y el contenido de la caja"]},
   /* */
-  {id:13,name:"PlayStation 5 SLIM +2 JUEGOS",category:"Consolas",price:8600,oldPrice:8750,emoji:"🎮",stock:true,image:"ps5slim+2juegos.jpg",images:["ps5slim+2juegos.jpg","ps5slim2.jpg","Guía rápida y accesorios PS5.png"],
+  {id:3,name:"PlayStation 5 SLIM +2 JUEGOS",category:"Consolas",price:8600,oldPrice:8750,emoji:"🎮",stock:true,image:"ps5slim+2juegos.jpg",images:["ps5slim+2juegos.jpg","ps5slim2.jpg","Guía rápida y accesorios PS5.png"],
     description:"La PS5 Slim ofrece la potencia de la consola en un diseño más compacto y elegante. Disfruta de almacenamiento SSD ultrarrápido con tiempos de carga casi instantáneos, ray tracing para iluminación y reflejos realistas, juegos en alta resolución y el control DualSense con respuesta háptica y gatillos adaptativos.",
     specs:["Plataforma: PS5","Modelo: Slim con lector","Consulta por WhatsApp la capacidad y el contenido de la caja"]},
   /* */
-  {id:14,name:"PlayStation 5 WOLVERINE (Digital)",category:"Consolas",price:10800,oldPrice:0,emoji:"🎮",stock:true,image:"slim wolverine.jpg",images:["slim wolverine.jpg"],
+  {id:4,name:"PlayStation 5 WOLVERINE (Digital)",category:"Consolas",price:10800,oldPrice:0,emoji:"🎮",stock:true,image:"slim wolverine.jpg",images:["slim wolverine.jpg"],
     description:"La PS5 Slim ofrece la potencia de la consola en un diseño más compacto y elegante. Disfruta de almacenamiento SSD ultrarrápido con tiempos de carga casi instantáneos, ray tracing para iluminación y reflejos realistas, juegos en alta resolución y el control DualSense con respuesta háptica y gatillos adaptativos.",
     specs:["Plataforma: PS5","Modelo: Slim DIGITAL","Consulta por WhatsApp la capacidad y el contenido de la caja"]},
   /* */
-  {id:15,name:"PlayStation 5 SLIM (GHOST OF YOTEI)",category:"Consolas",price:10600,oldPrice:0,emoji:"🎮",stock:true,image:"ps5yotei.jpg",images:["ps5yotei.jpg"],
+  {id:5,name:"PlayStation 5 SLIM (GHOST OF YOTEI)",category:"Consolas",price:10600,oldPrice:0,emoji:"🎮",stock:true,image:"ps5yotei.jpg",images:["ps5yotei.jpg"],
     description:"La PS5 Slim ofrece la potencia de la consola en un diseño más compacto y elegante. Disfruta de almacenamiento SSD ultrarrápido con tiempos de carga casi instantáneos, ray tracing para iluminación y reflejos realistas, juegos en alta resolución y el control DualSense con respuesta háptica y gatillos adaptativos.",
     specs:["Plataforma: PS5","Modelo: Slim con lector","Consulta por WhatsApp la capacidad y el contenido de la caja"]},
   /* */
-  {id:16,name:"PlayStation 5 SLIM (FORTNITE) ",category:"Consolas",price:8500,oldPrice:8500,emoji:"🎮",stock:false,image:"slim fortnite 2115web-1.jpg",images:["slim fortnite 2115web-1.jpg","ps5slim2.jpg","Guía rápida y accesorios PS5.png"],
+  {id:6,name:"PlayStation 5 SLIM (FORTNITE) ",category:"Consolas",price:8500,oldPrice:8500,emoji:"🎮",stock:false,image:"slim fortnite 2115web-1.jpg",images:["slim fortnite 2115web-1.jpg","ps5slim2.jpg","Guía rápida y accesorios PS5.png"],
     description:"La PS5 Slim ofrece la potencia de la consola en un diseño más compacto y elegante. Disfruta de almacenamiento SSD ultrarrápido con tiempos de carga casi instantáneos, ray tracing para iluminación y reflejos realistas, juegos en alta resolución y el control DualSense con respuesta háptica y gatillos adaptativos.",
     specs:["Plataforma: PS5","Modelo: Slim con lector","Consulta por WhatsApp la capacidad y el contenido de la caja"]},
-  /* NINTENDO SWITCH: EDITA LOS PRECIOS (5500 y 3200 son solo ejemplos) y sube switch2.jpg y switch1.jpg a GitHub */
-  {id:17,name:"Nintendo Switch 2",category:"Consolas",price:5500,oldPrice:0,emoji:"🕹️",stock:true,image:"nintendo 2 web.jpg",images:["nintendo 2 web.jpg"],
+  /* NINTENDO SWITCH: EDITA LOS PRECIOS (5500 y 3200 son solo ejemplos) */
+  {id:7,name:"Nintendo Switch 2",category:"Consolas",price:5500,oldPrice:0,emoji:"🕹️",stock:true,image:"nintendo 2 web.jpg",images:["nintendo 2 web.jpg"],
     description:"Consola Nintendo Switch 2 para jugar en casa o donde quieras, con pantalla más grande, mejor rendimiento y los controles Joy-Con 2.",
     specs:["Plataforma: Nintendo Switch 2","Consulta por WhatsApp el contenido de la caja y los juegos incluidos"]},
-  {id:18,name:"Nintendo Switch",category:"Consolas",price:3200,oldPrice:0,emoji:"🕹️",stock:true,image:"nintendo oled web-1.jpg",images:["nintendo oled web-1.jpg"],
+  {id:8,name:"Nintendo Switch",category:"Consolas",price:3200,oldPrice:0,emoji:"🕹️",stock:true,image:"nintendo oled web-1.jpg",images:["nintendo oled web-1.jpg"],
     description:"Consola Nintendo Switch para jugar en la TV o en modo portátil, con controles Joy-Con y un gran catálogo de juegos.",
     specs:["Plataforma: Nintendo Switch","Consulta por WhatsApp el modelo y el contenido de la caja"]},
   /* */
-  {id:2,name:"Control inalámbrico PS5",category:"Mandos PlayStation",price:780,oldPrice:820,emoji:"🕹️",stock:true,image:"mandosps5colores.jpg"},
-  {id:3,name:"Audífonos PS5",category:"Accesorios",price:220,oldPrice:0,emoji:"🎧",stock:false,image:"https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=600&q=80"},
-  {id:5,name:"EA SPORTS FC27",category:"Juegos PS5",price:750,oldPrice:800,emoji:"⚽",stock:true,image:"FC27-1 (2).png"},
-  {id:6,name:"God of War Ragnarök PS4",category:"Juegos PS4",price:250,oldPrice:300,emoji:"⚔️",stock:true,image:"https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=600&q=80"},
-  {id:7,name:"Lector de discos PS5",category:"Accesorios",price:140,oldPrice:0,emoji:"🖱️",stock:false,image:""},
-  {id:8,name:"PlayStation 4 SLIM",category:"Consolas",price:4200,oldPrice:4500,emoji:"🎮",stock:true,image:"https://images.unsplash.com/photo-1486401899868-0e435ed85128?auto=format&fit=crop&w=600&q=80"},
+  {id:9,name:"Control inalámbrico PS5",category:"Mandos PlayStation",price:780,oldPrice:820,emoji:"🕹️",stock:true,image:"mandosps5colores.jpg"},
+  {id:10,name:"Audífonos PS5",category:"Accesorios",price:220,oldPrice:0,emoji:"🎧",stock:false,image:"https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=600&q=80"},
+  {id:11,name:"EA SPORTS FC27",category:"Juegos PS5",price:750,oldPrice:800,emoji:"⚽",stock:true,image:"FC27-1 (2).png"},
+  {id:12,name:"God of War Ragnarök PS4",category:"Juegos PS4",price:250,oldPrice:300,emoji:"⚔️",stock:true,image:"https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=600&q=80"},
+  {id:13,name:"Lector de discos PS5",category:"Accesorios",price:140,oldPrice:0,emoji:"🖱️",stock:false,image:""},
+  {id:14,name:"PlayStation 4 SLIM",category:"Consolas",price:4200,oldPrice:4500,emoji:"🎮",stock:true,image:"https://images.unsplash.com/photo-1486401899868-0e435ed85128?auto=format&fit=crop&w=600&q=80"},
   /* PARLANTES: ejemplos. Edita nombre, precio y foto (sube jbl-flip6.jpg, etc. a GitHub). */
-  {id:9,name:"Parlante JBL Flip 6",category:"Parlantes",price:950,oldPrice:0,emoji:"🔊",stock:true,image:"jbl-flip6.jpg",
+  {id:15,name:"Parlante JBL Flip 6",category:"Parlantes",price:950,oldPrice:0,emoji:"🔊",stock:true,image:"jbl-flip6.jpg",
     description:"Parlante portátil JBL con conexión Bluetooth, sonido potente y diseño resistente. Ideal para llevarlo a reuniones, paseos y fiestas.",
     specs:["Marca: JBL","Conexión: Bluetooth","Consulta por WhatsApp el modelo exacto y su autonomía"]},
-  {id:10,name:"Parlante JBL Charge 5",category:"Parlantes",price:1450,oldPrice:0,emoji:"🔊",stock:true,image:"jbl-charge5.jpg",
+  {id:16,name:"Parlante JBL Charge 5",category:"Parlantes",price:1450,oldPrice:0,emoji:"🔊",stock:true,image:"jbl-charge5.jpg",
     description:"Parlante JBL de sonido potente con gran autonomía para que la música no pare durante todo el evento.",
     specs:["Marca: JBL","Conexión: Bluetooth","Consulta por WhatsApp el modelo exacto y su autonomía"]},
-  {id:11,name:"Parlante JBL PartyBox",category:"Parlantes",price:3200,oldPrice:0,emoji:"🔊",stock:true,image:"jbl-partybox.jpg",
+  {id:17,name:"Parlante JBL PartyBox",category:"Parlantes",price:3200,oldPrice:0,emoji:"🔊",stock:true,image:"jbl-partybox.jpg",
     description:"Parlante JBL de alta potencia pensado para fiestas, con graves profundos y efectos de luces.",
     specs:["Marca: JBL","Conexión: Bluetooth","Consulta por WhatsApp el modelo exacto y su autonomía"]}
   /* Para agregar uno nuevo, copia una línea (sin olvidar la coma) y usa una de estas categorías:
@@ -526,10 +530,10 @@ const discount = p => p.oldPrice > p.price ? Math.round((1 - p.price / p.oldPric
 
 let category = "Todos", cart = {};
 try {
-  const saved = JSON.parse(localStorage.getItem("sg_cart")) || {};
+  const saved = JSON.parse(localStorage.getItem("sg_cart2")) || {};
   Object.keys(saved).forEach(id => { if (find(id) && saved[id] > 0) cart[id] = saved[id]; });
 } catch (e) {}
-const saveCart = () => { try { localStorage.setItem("sg_cart", JSON.stringify(cart)); } catch (e) {} };
+const saveCart = () => { try { localStorage.setItem("sg_cart2", JSON.stringify(cart)); } catch (e) {} };
 
 let toastTimer;
 function toast(msg) {
@@ -765,6 +769,72 @@ $("#searchForm").onsubmit = e => { e.preventDefault(); renderProducts(); $("#pro
 $("#searchInput").oninput = renderProducts;
 $("#sort").onchange = renderProducts;
 
+/* Catálogo desde Google Sheets (opcional) */
+const CATEGORIES = ["Consolas", "Mandos PlayStation", "Mandos Nintendo", "Juegos PS5", "Juegos PS4", "Juegos NSW2", "Juegos NSW1", "Accesorios", "Parlantes", "Gift Cards"];
+function parseCSV(text) {
+  const rows = []; let row = [], cur = "", q = false;
+  text = text.replace(/^\uFEFF/, "");
+  for (let i = 0; i < text.length; i++) {
+    const c = text[i];
+    if (q) { if (c === '"') { if (text[i + 1] === '"') { cur += '"'; i++; } else q = false; } else cur += c; }
+    else if (c === '"') q = true;
+    else if (c === ",") { row.push(cur); cur = ""; }
+    else if (c === "\n" || c === "\r") { if (c === "\r" && text[i + 1] === "\n") i++; row.push(cur); rows.push(row); row = []; cur = ""; }
+    else cur += c;
+  }
+  if (cur !== "" || row.length) { row.push(cur); rows.push(row); }
+  return rows.filter(r => r.some(x => x.trim() !== ""));
+}
+const parseNum = v => {
+  let s = String(v).trim().replace(/[^\d.,]/g, "");
+  if (!s) return NaN;
+  if (/^\d{1,3}([.,]\d{3})+$/.test(s)) s = s.replace(/[.,]/g, ""); else s = s.replace(",", ".");
+  return Number(s);
+};
+const driveImg = u => {
+  u = String(u || "").trim();
+  const m = u.match(/drive\.google\.com\/(?:file\/d\/|open\?id=|uc\?(?:export=\w+&)?id=)([\w-]+)/);
+  return m ? "https://drive.google.com/thumbnail?id=" + m[1] + "&sz=w1200" : u;
+};
+const splitList = v => String(v || "").split("|").map(x => x.trim()).filter(Boolean);
+async function loadCatalog() {
+  if (!PRICES_CSV_URL) return;
+  try {
+    const res = await fetch(PRICES_CSV_URL + (PRICES_CSV_URL.includes("?") ? "&" : "?") + "t=" + Date.now(), {cache: "no-store"});
+    if (!res.ok) throw new Error("HTTP " + res.status);
+    const rows = parseCSV(await res.text());
+    const head = rows.shift().map(h => norm(h).trim().replace(/\s+/g, "_"));
+    const C = {};
+    ["id", "nombre", "categoria", "precio", "precio_anterior", "stock", "cantidad", "emoji", "imagen", "imagenes", "descripcion", "especificaciones", "visible"].forEach(k => C[k] = head.indexOf(k));
+    if (C.id < 0) throw new Error("Falta la columna id");
+    const get = (r, k) => C[k] >= 0 ? String(r[C[k]] ?? "").trim() : "";
+    rows.forEach(r => {
+      const id = Number(get(r, "id")); if (!id) return;
+      let p = find(id); const isNew = !p;
+      if (isNew) p = {id, name: "", category: "", price: 0, oldPrice: 0, emoji: "🛍️", stock: true, image: ""};
+      const nombre = get(r, "nombre"); if (nombre) p.name = nombre;
+      const cat = get(r, "categoria"); if (cat) p.category = CATEGORIES.find(c => norm(c) === norm(cat)) || cat;
+      const pr = parseNum(get(r, "precio")); if (pr > 0) p.price = pr;
+      if (C.precio_anterior >= 0) { const old = parseNum(get(r, "precio_anterior")); p.oldPrice = old > 0 ? old : 0; }
+      const st = norm(get(r, "stock"));
+      if (["no", "agotado", "0", "false"].includes(st)) p.stock = false; else if (["si", "1", "true", "disponible"].includes(st)) p.stock = true;
+      if (C.cantidad >= 0) { const q = parseNum(get(r, "cantidad")); p.qty = q > 0 ? q : undefined; }
+      const em = get(r, "emoji"); if (em) p.emoji = em;
+      const im1 = driveImg(get(r, "imagen")), list = splitList(get(r, "imagenes")).map(driveImg);
+      if (list.length) { p.images = list; p.image = im1 || list[0]; }
+      else if (im1) { p.image = im1; p.images = (!isNew && p.images && p.images.length) ? [im1, ...p.images.slice(1)] : [im1]; }
+      const ds = get(r, "descripcion"); if (ds) p.description = ds;
+      const sp = splitList(get(r, "especificaciones")); if (sp.length) p.specs = sp;
+      const vi = norm(get(r, "visible"));
+      if (["no", "0", "false", "oculto"].includes(vi)) p.hidden = true; else if (vi) p.hidden = false;
+      if (isNew) { if (!p.name || !(p.price > 0)) return; PRODUCTS.push(p); }
+    });
+    for (let i = PRODUCTS.length - 1; i >= 0; i--) if (PRODUCTS[i].hidden) PRODUCTS.splice(i, 1);
+    Object.keys(cart).forEach(id => { if (!find(id)) delete cart[id]; });
+    renderProducts(); renderCart(); routeDetail();
+  } catch (err) { console.warn("No se pudo cargar el catálogo de la hoja de cálculo:", err); }
+}
+
 /* Enlaces de WhatsApp */
 document.querySelectorAll(".wa").forEach(a => {
   a.onclick = e => { e.preventDefault(); openWA("Hola, quiero consultar por los productos de STYLES GAMER."); };
@@ -774,6 +844,7 @@ $("#year").textContent = new Date().getFullYear();
 renderProducts();
 renderCart();
 routeDetail();
+loadCatalog();
 </script>
 </body>
 </html>
