@@ -239,6 +239,8 @@ a.shot{display:block;cursor:pointer}
 .gallery.one .shot{aspect-ratio:21/8}
 @media(max-width:600px){.gallery.one .shot{aspect-ratio:4/3}}
 .off{background:var(--red);color:#fff;font-size:11px;font-weight:900;padding:4px 7px;border-radius:4px;white-space:nowrap}
+.price.nop{font-size:15px;color:#087d91}
+.d-price .now.nop{font-size:24px;color:#087d91}
 @media(min-width:601px){.header{position:sticky;top:0}}
 @media(max-width:900px){.top{gap:15px;padding:16px 18px}.products{grid-template-columns:repeat(3,minmax(0,1fr))}.categories,.benefits{grid-template-columns:repeat(2,1fr)}main{padding:0 18px}.action-text{display:none}}
 @media(max-width:600px){html{scroll-padding-top:20px}.promo{font-size:10px}.top{padding:14px;flex-wrap:wrap;gap:12px}.logo img{height:68px}.search{order:3;flex-basis:100%;max-width:none}.nav-inner{padding:0 15px;gap:22px}main{padding:0 12px}.hero{min-height:290px;margin-top:14px}.hero-content{padding:30px 23px}.hero-decoration{right:0;font-size:115px}.hero h1{font-size:35px}.hero p{font-size:13px}.benefits{gap:8px}.benefit{padding:12px 8px;gap:8px}.benefit .emoji{font-size:21px}.benefit strong,.benefit small{font-size:10px}.section-head h2{font-size:19px}.categories{gap:9px}.category{padding:15px 10px;gap:9px}.category .icon{font-size:26px}.category strong{font-size:11px}.category small{font-size:10px}.products{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.product-image{height:auto}.product-info{padding:10px}.product h3{font-size:12px;min-height:51px}.price{font-size:18px}.buy,.filter{font-size:10px;padding:10px 4px}.promo-banner{padding:22px 16px;flex-direction:column;align-items:flex-start}.footer-inner{padding:30px 18px;grid-template-columns:1fr 1fr;gap:22px}.footer-brand{grid-column:1/-1}}
@@ -291,12 +293,10 @@ a.shot{display:block;cursor:pointer}
         <div class="dd-sub">
           <a href="#productos" data-category="Mandos PlayStation" data-q="ps5">Mandos PS5</a>
           <a href="#productos" data-category="Mandos PlayStation" data-q="ps4">Mandos PS4</a>
-          <a href="#productos" data-category="Mandos Nintendo" data-q="switch 2">Mandos Switch 2</a>
-          <a href="#productos" data-category="Mandos Nintendo">Mandos Switch</a>
+          <a href="#productos" data-category="Mandos Nintendo" data-q="nw2">Mandos Switch 2</a>
+          <a href="#productos" data-category="Mandos Nintendo" data-q="nw1">Mandos Switch</a>
         </div></div>
         <div class="dd-item"><a href="#productos" data-category="Accesorios" data-q="audifonos">Audífonos</a></div>
-        <div class="dd-item"><a href="#productos" data-category="Accesorios" data-q="teclado">Teclados</a></div>
-        <div class="dd-item"><a href="#productos" data-category="Accesorios" data-q="mouse">Mouse</a></div>
         <div class="dd-item"><a href="#productos" data-category="Accesorios">Todos los accesorios</a></div>
         </div>
       </div>
@@ -307,13 +307,8 @@ a.shot{display:block;cursor:pointer}
         <div class="dd-item"><a href="#productos" data-category="Gift Cards" data-q="playstation network">PlayStation Network</a></div>
         <div class="dd-item"><a href="#productos" data-category="Gift Cards" data-q="nintendo e-shop">Nintendo E-shop</a></div>
         <div class="dd-item"><a href="#productos" data-category="Gift Cards" data-q="xbox">Xbox</a></div>
-        <div class="dd-item"><a href="#productos" data-category="Gift Cards" data-q="roblox">Roblox</a></div>
-        <div class="dd-item"><a href="#productos" data-category="Gift Cards" data-q="itunes">iTunes</a></div>
         <div class="dd-item"><a href="#productos" data-category="Gift Cards" data-q="steam">Steam</a></div>
         <div class="dd-item"><a href="#productos" data-category="Gift Cards" data-q="fortnite">Fortnite</a></div>
-        <div class="dd-item"><a href="#productos" data-category="Gift Cards" data-q="razer">Tarjetas Razer</a></div>
-        <div class="dd-item"><a href="#productos" data-category="Gift Cards" data-q="free fire">Free Fire</a></div>
-        <div class="dd-item"><a href="#productos" data-category="Gift Cards" data-q="pubg">Pubg</a></div>
         </div>
       </div>
       <a href="#ofertas">Ofertas</a>
@@ -474,58 +469,85 @@ const PRODUCTS = [
   {id:1,name:"PlayStation 5 SLIM (BASICA) ",category:"Consolas",price:8300,oldPrice:8500,emoji:"🎮",stock:true,image:"ps5slim.jpg",images:["ps5slim.jpg","ps5slim2.jpg","Guía rápida y accesorios PS5.png"],
     description:"La PS5 Slim ofrece la potencia de la consola en un diseño más compacto y elegante. Disfruta de almacenamiento SSD ultrarrápido con tiempos de carga casi instantáneos, ray tracing para iluminación y reflejos realistas, juegos en alta resolución y el control DualSense con respuesta háptica y gatillos adaptativos.",
     specs:["Plataforma: PS5","Modelo: Slim con lector","Consulta por WhatsApp la capacidad y el contenido de la caja"]},
-  /* */
   {id:2,name:"PlayStation 5 PRO",category:"Consolas",price:16500,oldPrice:0,emoji:"🎮",stock:true,image:"ps5pro.jpg",images:["ps5pro.jpg"],
     description:"La PS5 Pro ofrece más potencia gráfica, ray tracing mejorado y juegos en alta resolución, para la mejor experiencia de PlayStation 5.",
     specs:["Plataforma: PS5","Modelo: Pro","Consulta por WhatsApp la capacidad y el contenido de la caja"]},
-  /* */
   {id:3,name:"PlayStation 5 SLIM +2 JUEGOS",category:"Consolas",price:8600,oldPrice:8750,emoji:"🎮",stock:true,image:"ps5slim+2juegos.jpg",images:["ps5slim+2juegos.jpg","ps5slim2.jpg","Guía rápida y accesorios PS5.png"],
     description:"La PS5 Slim ofrece la potencia de la consola en un diseño más compacto y elegante. Disfruta de almacenamiento SSD ultrarrápido con tiempos de carga casi instantáneos, ray tracing para iluminación y reflejos realistas, juegos en alta resolución y el control DualSense con respuesta háptica y gatillos adaptativos.",
     specs:["Plataforma: PS5","Modelo: Slim con lector","Consulta por WhatsApp la capacidad y el contenido de la caja"]},
-  /* */
   {id:4,name:"PlayStation 5 WOLVERINE (Digital)",category:"Consolas",price:10800,oldPrice:0,emoji:"🎮",stock:true,image:"slim wolverine.jpg",images:["slim wolverine.jpg"],
     description:"La PS5 Slim ofrece la potencia de la consola en un diseño más compacto y elegante. Disfruta de almacenamiento SSD ultrarrápido con tiempos de carga casi instantáneos, ray tracing para iluminación y reflejos realistas, juegos en alta resolución y el control DualSense con respuesta háptica y gatillos adaptativos.",
     specs:["Plataforma: PS5","Modelo: Slim DIGITAL","Consulta por WhatsApp la capacidad y el contenido de la caja"]},
-  /* */
   {id:5,name:"PlayStation 5 SLIM (GHOST OF YOTEI)",category:"Consolas",price:10600,oldPrice:0,emoji:"🎮",stock:true,image:"ps5yotei.jpg",images:["ps5yotei.jpg"],
     description:"La PS5 Slim ofrece la potencia de la consola en un diseño más compacto y elegante. Disfruta de almacenamiento SSD ultrarrápido con tiempos de carga casi instantáneos, ray tracing para iluminación y reflejos realistas, juegos en alta resolución y el control DualSense con respuesta háptica y gatillos adaptativos.",
     specs:["Plataforma: PS5","Modelo: Slim con lector","Consulta por WhatsApp la capacidad y el contenido de la caja"]},
-  /* */
   {id:6,name:"PlayStation 5 SLIM (FORTNITE) ",category:"Consolas",price:8500,oldPrice:8500,emoji:"🎮",stock:false,image:"slim fortnite 2115web-1.jpg",images:["slim fortnite 2115web-1.jpg","ps5slim2.jpg","Guía rápida y accesorios PS5.png"],
     description:"La PS5 Slim ofrece la potencia de la consola en un diseño más compacto y elegante. Disfruta de almacenamiento SSD ultrarrápido con tiempos de carga casi instantáneos, ray tracing para iluminación y reflejos realistas, juegos en alta resolución y el control DualSense con respuesta háptica y gatillos adaptativos.",
     specs:["Plataforma: PS5","Modelo: Slim con lector","Consulta por WhatsApp la capacidad y el contenido de la caja"]},
-  /* NINTENDO SWITCH: EDITA LOS PRECIOS (5500 y 3200 son solo ejemplos) */
   {id:7,name:"Nintendo Switch 2",category:"Consolas",price:5500,oldPrice:0,emoji:"🕹️",stock:true,image:"nintendo 2 web.jpg",images:["nintendo 2 web.jpg"],
     description:"Consola Nintendo Switch 2 para jugar en casa o donde quieras, con pantalla más grande, mejor rendimiento y los controles Joy-Con 2.",
     specs:["Plataforma: Nintendo Switch 2","Consulta por WhatsApp el contenido de la caja y los juegos incluidos"]},
   {id:8,name:"Nintendo Switch",category:"Consolas",price:3200,oldPrice:0,emoji:"🕹️",stock:true,image:"nintendo oled web-1.jpg",images:["nintendo oled web-1.jpg"],
     description:"Consola Nintendo Switch para jugar en la TV o en modo portátil, con controles Joy-Con y un gran catálogo de juegos.",
     specs:["Plataforma: Nintendo Switch","Consulta por WhatsApp el modelo y el contenido de la caja"]},
-  /* */
-  {id:9,name:"Control inalámbrico PS5",category:"Mandos PlayStation",price:780,oldPrice:820,emoji:"🕹️",stock:true,image:"mandosps5colores.jpg"},
-  {id:10,name:"Audífonos PS5",category:"Accesorios",price:220,oldPrice:0,emoji:"🎧",stock:false,image:"https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=600&q=80"},
-  {id:11,name:"EA SPORTS FC27",category:"Juegos PS5",price:750,oldPrice:800,emoji:"⚽",stock:true,image:"FC27-1 (2).png"},
-  {id:12,name:"God of War Ragnarök PS4",category:"Juegos PS4",price:250,oldPrice:300,emoji:"⚔️",stock:true,image:"https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=600&q=80"},
-  {id:13,name:"Lector de discos PS5",category:"Accesorios",price:140,oldPrice:0,emoji:"🖱️",stock:false,image:""},
-  {id:14,name:"PlayStation 4 SLIM",category:"Consolas",price:4200,oldPrice:4500,emoji:"🎮",stock:true,image:"https://images.unsplash.com/photo-1486401899868-0e435ed85128?auto=format&fit=crop&w=600&q=80"},
-  /* PARLANTES: ejemplos. Edita nombre, precio y foto (sube jbl-flip6.jpg, etc. a GitHub). */
-  {id:15,name:"Parlante JBL Flip 6",category:"Parlantes",price:950,oldPrice:0,emoji:"🔊",stock:true,image:"jbl-flip6.jpg",
-    description:"Parlante portátil JBL con conexión Bluetooth, sonido potente y diseño resistente. Ideal para llevarlo a reuniones, paseos y fiestas.",
-    specs:["Marca: JBL","Conexión: Bluetooth","Consulta por WhatsApp el modelo exacto y su autonomía"]},
-  {id:16,name:"Parlante JBL Charge 5",category:"Parlantes",price:1450,oldPrice:0,emoji:"🔊",stock:true,image:"jbl-charge5.jpg",
-    description:"Parlante JBL de sonido potente con gran autonomía para que la música no pare durante todo el evento.",
-    specs:["Marca: JBL","Conexión: Bluetooth","Consulta por WhatsApp el modelo exacto y su autonomía"]},
-  {id:17,name:"Parlante JBL PartyBox",category:"Parlantes",price:3200,oldPrice:0,emoji:"🔊",stock:true,image:"jbl-partybox.jpg",
-    description:"Parlante JBL de alta potencia pensado para fiestas, con graves profundos y efectos de luces.",
-    specs:["Marca: JBL","Conexión: Bluetooth","Consulta por WhatsApp el modelo exacto y su autonomía"]}
-  /* Para agregar uno nuevo, copia una línea (sin olvidar la coma) y usa una de estas categorías:
-     Consolas, Mandos PlayStation, Mandos Nintendo, Juegos PS5, Juegos PS4, Juegos NSW2, Juegos NSW1, Accesorios, Parlantes, Gift Cards */
+  {id:9,name:"Control inalámbrico PS5",category:"Mandos PlayStation",price:780,oldPrice:820,emoji:"🕹️",stock:true,image:"mandosps5colores.jpg",images:["mandosps5colores.jpg"]},
+  {id:10,name:"Audífonos PS5",category:"Accesorios",price:220,oldPrice:0,emoji:"🎧",stock:false,image:"https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=600&q=80",images:["https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=600&q=80"]},
+  {id:11,name:"EA SPORTS FC27",category:"Juegos PS5",price:750,oldPrice:800,emoji:"⚽",stock:true,image:"FC27-1 (2).png",images:["FC27-1 (2).png"]},
+  {id:12,name:"God of War Ragnarök PS4",category:"Juegos PS4",price:250,oldPrice:300,emoji:"⚔️",stock:true,image:"https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=600&q=80",images:["https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=600&q=80"]},
+  {id:13,name:"Lector de discos PS5",category:"Accesorios",price:140,oldPrice:0,emoji:"🖱️",stock:false,image:"",images:[]},
+  {id:14,name:"PlayStation 4 SLIM",category:"Consolas",price:4200,oldPrice:4500,emoji:"🎮",stock:true,image:"https://images.unsplash.com/photo-1486401899868-0e435ed85128?auto=format&fit=crop&w=600&q=80",images:["https://images.unsplash.com/photo-1486401899868-0e435ed85128?auto=format&fit=crop&w=600&q=80"]},
+  /* PARLANTES, AUDÍFONOS, ESTUCHES Y BOSE (ids 15 al 40). Precio 0 = "Consultar precio". Cambia el nombre de la foto en image / images. */
+  {id:15,name:"JBL PARTYBOX 720",category:"Parlantes",price:0,oldPrice:0,emoji:"🔊",stock:true,image:"jbl-partybox-720.jpg",images:["jbl-partybox-720.jpg"]},
+  {id:16,name:"JBL EON ONE COMPACT",category:"Parlantes",price:0,oldPrice:0,emoji:"🔊",stock:true,image:"jbl-eon-one-compact.jpg",images:["jbl-eon-one-compact.jpg"]},
+  {id:17,name:"JBL PARTYBOX 520",category:"Parlantes",price:0,oldPrice:0,emoji:"🔊",stock:true,image:"jbl-partybox-520.jpg",images:["jbl-partybox-520.jpg"]},
+  {id:18,name:"JBL PARTYBOX 330 NEGRO",category:"Parlantes",price:0,oldPrice:0,emoji:"🔊",stock:true,image:"jbl-partybox-330-negro.jpg",images:["jbl-partybox-330-negro.jpg"]},
+  {id:19,name:"JBL PARTYBOX 330 BLANCO",category:"Parlantes",price:0,oldPrice:0,emoji:"🔊",stock:true,image:"jbl-partybox-330-blanco.jpg",images:["jbl-partybox-330-blanco.jpg"]},
+  {id:20,name:"JBL PARTYBOX 320",category:"Parlantes",price:0,oldPrice:0,emoji:"🔊",stock:true,image:"jbl-partybox-320.jpg",images:["jbl-partybox-320.jpg"]},
+  {id:21,name:"JBL BOOMBOX 4 BLANCO",category:"Parlantes",price:0,oldPrice:0,emoji:"🔊",stock:true,image:"jbl-boombox-4-blanco.jpg",images:["jbl-boombox-4-blanco.jpg"]},
+  {id:22,name:"JBL BOOMBOX 4",category:"Parlantes",price:0,oldPrice:0,emoji:"🔊",stock:true,image:"jbl-boombox-4.jpg",images:["jbl-boombox-4.jpg"]},
+  {id:23,name:"JBL BOOMBOX 3 WIFI",category:"Parlantes",price:0,oldPrice:0,emoji:"🔊",stock:true,image:"jbl-boombox-3-wifi.jpg",images:["jbl-boombox-3-wifi.jpg"]},
+  {id:24,name:"JBL ENCORE 2 C/2 MICR.",category:"Parlantes",price:0,oldPrice:0,emoji:"🎤",stock:true,image:"jbl-encore-2-c-2-micr.jpg",images:["jbl-encore-2-c-2-micr.jpg"]},
+  {id:25,name:"JBL ON THE GO 2 PLUS",category:"Parlantes",price:0,oldPrice:0,emoji:"🔊",stock:true,image:"jbl-on-the-go-2-plus.jpg",images:["jbl-on-the-go-2-plus.jpg"]},
+  {id:26,name:"JBL ENCORE C/2 MICR.",category:"Parlantes",price:0,oldPrice:0,emoji:"🎤",stock:true,image:"jbl-encore-c-2-micr.jpg",images:["jbl-encore-c-2-micr.jpg"]},
+  {id:27,name:"JBL PARTYBOX 130",category:"Parlantes",price:0,oldPrice:0,emoji:"🔊",stock:true,image:"jbl-partybox-130.jpg",images:["jbl-partybox-130.jpg"]},
+  {id:28,name:"JBL XTREME 5",category:"Parlantes",price:0,oldPrice:0,emoji:"🔊",stock:true,image:"jbl-xtreme-5.jpg",images:["jbl-xtreme-5.jpg"]},
+  {id:29,name:"JBL ENCORE 2 ESSENTIAL PLUS",category:"Parlantes",price:0,oldPrice:0,emoji:"🔊",stock:true,image:"jbl-encore-2-essential-plus.jpg",images:["jbl-encore-2-essential-plus.jpg"]},
+  {id:30,name:"JBL CHARGE 6",category:"Parlantes",price:0,oldPrice:0,emoji:"🔊",stock:true,image:"jbl-charge-6.jpg",images:["jbl-charge-6.jpg"]},
+  {id:31,name:"JBL MICROFONO EASY",category:"Parlantes",price:0,oldPrice:0,emoji:"🎤",stock:true,image:"jbl-microfono-easy.jpg",images:["jbl-microfono-easy.jpg"]},
+  {id:32,name:"JBL MICROFONO",category:"Parlantes",price:0,oldPrice:0,emoji:"🎤",stock:true,image:"jbl-microfono.jpg",images:["jbl-microfono.jpg"]},
+  {id:33,name:"JBL FLIP 7",category:"Parlantes",price:0,oldPrice:0,emoji:"🔊",stock:true,image:"jbl-flip-7.jpg",images:["jbl-flip-7.jpg"]},
+  {id:34,name:"JBL GRIP",category:"Parlantes",price:0,oldPrice:0,emoji:"🔊",stock:true,image:"jbl-grip.jpg",images:["jbl-grip.jpg"],
+    specs:["Marca: JBL","Colores disponibles: Azul · Rojo · Negro"]},
+  {id:35,name:"JBL CLIP 5",category:"Parlantes",price:0,oldPrice:0,emoji:"🔊",stock:true,image:"jbl-clip-5.jpg",images:["jbl-clip-5.jpg"]},
+  {id:36,name:"JBL GO 5",category:"Parlantes",price:0,oldPrice:0,emoji:"🔊",stock:true,image:"jbl-go-5.jpg",images:["jbl-go-5.jpg"]},
+  {id:37,name:"JBL AUDÍFONOS XBOX 360",category:"Parlantes",price:0,oldPrice:0,emoji:"🎧",stock:true,image:"jbl-audifonos-xbox-360.jpg",images:["jbl-audifonos-xbox-360.jpg"]},
+  {id:38,name:"ESTUCHE JBL PARTYBOX 520",category:"Parlantes",price:0,oldPrice:0,emoji:"💼",stock:true,image:"estuche-jbl-partybox-520.jpg",images:["estuche-jbl-partybox-520.jpg"]},
+  {id:39,name:"ESTUCHE JBL PARTYBOX 120",category:"Parlantes",price:0,oldPrice:0,emoji:"💼",stock:true,image:"estuche-jbl-partybox-120.jpg",images:["estuche-jbl-partybox-120.jpg"]},
+  {id:40,name:"BOSE S1 PRO PLUS",category:"Parlantes",price:0,oldPrice:0,emoji:"🔊",stock:true,image:"bose-s1-pro-plus.jpg",images:["bose-s1-pro-plus.jpg"]},
+  /* JUEGOS Y MANDOS NUEVOS (ids 41 al 47) */
+  {id:41,name:"Zelda Ocarina of Time",category:"Juegos NSW2",price:0,oldPrice:0,emoji:"💿",stock:true,image:"zelda-ocarina-of-time.jpg",images:["zelda-ocarina-of-time.jpg"]},
+  {id:42,name:"Super Mario Party Jamboree",category:"Juegos NSW1",price:0,oldPrice:0,emoji:"💿",stock:true,image:"super-mario-party-jamboree.jpg",images:["super-mario-party-jamboree.jpg"]},
+  {id:43,name:"DualShock 4 (PS4)",category:"Mandos PlayStation",price:0,oldPrice:0,emoji:"🎮",stock:true,image:"dualshock-4-ps4.jpg",images:["dualshock-4-ps4.jpg"]},
+  {id:44,name:"Joy-Con NW2",category:"Mandos Nintendo",price:0,oldPrice:0,emoji:"🕹️",stock:true,image:"joy-con-nw2.jpg",images:["joy-con-nw2.jpg"]},
+  {id:45,name:"Pro Controller NW2",category:"Mandos Nintendo",price:0,oldPrice:0,emoji:"🕹️",stock:true,image:"pro-controller-nw2.jpg",images:["pro-controller-nw2.jpg"]},
+  {id:46,name:"Joy-Con NW1",category:"Mandos Nintendo",price:0,oldPrice:0,emoji:"🕹️",stock:true,image:"joy-con-nw1.jpg",images:["joy-con-nw1.jpg"]},
+  {id:47,name:"Pro Controller NW1",category:"Mandos Nintendo",price:0,oldPrice:0,emoji:"🕹️",stock:true,image:"pro-controller-nw1.jpg",images:["pro-controller-nw1.jpg"]},
+  /* GIFT CARDS (ids 48 al 52). Precio 0 = "Consultar precio". Si vendes varios montos, copia la línea y cambia el id, el nombre (ej. "Gift Card Steam $20") y el precio. */
+  {id:48,name:"Gift Card PlayStation Network",category:"Gift Cards",price:0,oldPrice:0,emoji:"🎁",stock:true,image:"gift-card-playstation-network.jpg",images:["gift-card-playstation-network.jpg"]},
+  {id:49,name:"Gift Card Nintendo E-shop",category:"Gift Cards",price:0,oldPrice:0,emoji:"🎁",stock:true,image:"gift-card-nintendo-e-shop.jpg",images:["gift-card-nintendo-e-shop.jpg"]},
+  {id:50,name:"Gift Card Xbox",category:"Gift Cards",price:0,oldPrice:0,emoji:"🎁",stock:true,image:"gift-card-xbox.jpg",images:["gift-card-xbox.jpg"]},
+  {id:51,name:"Gift Card Steam",category:"Gift Cards",price:0,oldPrice:0,emoji:"🎁",stock:true,image:"gift-card-steam.jpg",images:["gift-card-steam.jpg"]},
+  {id:52,name:"Gift Card Fortnite",category:"Gift Cards",price:0,oldPrice:0,emoji:"🎁",stock:true,image:"gift-card-fortnite.jpg",images:["gift-card-fortnite.jpg"]}
+  /* Para agregar uno nuevo, copia una línea (sin olvidar la coma) con un id nuevo (53, 54...). Para poner más fotos agrega nombres a images:["foto1.jpg","foto2.jpg"].
+     Categorías: Consolas, Mandos PlayStation, Mandos Nintendo, Juegos PS5, Juegos PS4, Juegos NSW2, Juegos NSW1, Accesorios, Parlantes, Gift Cards */
 ];
 
 const $ = s => document.querySelector(s);
 const norm = s => s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 const money = v => "Bs " + Number(v).toLocaleString("es-BO");
 const find = id => PRODUCTS.find(p => p.id === Number(id));
+const hasPrice = p => p.price > 0;
+const priceTxt = p => hasPrice(p) ? money(p.price) : "Consultar precio";
 const discount = p => p.oldPrice > p.price ? Math.round((1 - p.price / p.oldPrice) * 100) : 0;
 
 let category = "Todos", cart = {};
@@ -562,8 +584,8 @@ function renderProducts() {
     (category === "Todos" || p.category === category) &&
     norm(p.name + " " + p.category).includes(term));
 
-  if (mode === "asc") list.sort((a, b) => a.price - b.price);
-  if (mode === "desc") list.sort((a, b) => b.price - a.price);
+  if (mode === "asc") list.sort((a, b) => (hasPrice(a) ? a.price : 1e12) - (hasPrice(b) ? b.price : 1e12));
+  if (mode === "desc") list.sort((a, b) => (hasPrice(b) ? b.price : -1) - (hasPrice(a) ? a.price : -1));
   if (mode === "deal") list.sort((a, b) => discount(b) - discount(a));
 
   $("#productGrid").innerHTML = list.map(p => {
@@ -577,10 +599,10 @@ function renderProducts() {
       <div class="product-info">
         <div class="product-category">${p.category}</div>
         <h3 data-open="${p.id}">${p.name}</h3>
-        <div class="prices"><span class="price">${money(p.price)}</span>${d ? `<span class="off">-${d}%</span>` : ""}</div>
+        <div class="prices"><span class="price${hasPrice(p) ? "" : " nop"}">${priceTxt(p)}</span>${d ? `<span class="off">-${d}%</span>` : ""}</div>
         <div class="buttons">
           <button class="buy" data-buy="${p.id}" ${p.stock ? "" : "disabled"}>CONSULTAR / COMPRAR</button>
-          <button class="filter" data-add="${p.id}" ${p.stock ? "" : "disabled"}>＋ AGREGAR AL PEDIDO</button>
+          <button class="filter" data-add="${p.id}" ${p.stock && hasPrice(p) ? "" : "disabled"}>${hasPrice(p) ? "＋ AGREGAR AL PEDIDO" : "PRECIO POR CONSULTAR"}</button>
         </div>
       </div>
     </article>`;
@@ -651,7 +673,7 @@ function renderDetail() {
       <div>
         <h1 class="d-title">${p.name}</h1>
         <div class="sku">SKU: ${sku}</div>
-        <div class="d-price"><span class="now">${money(p.price)}</span>${d ? `<span class="off">-${d}%</span>` : ""}</div>
+        <div class="d-price"><span class="now${hasPrice(p) ? "" : " nop"}">${priceTxt(p)}</span>${d ? `<span class="off">-${d}%</span>` : ""}</div>
         <div class="pill ${p.stock ? "" : "out"}">${p.stock ? (p.qty ? p.qty + " disponibles" : "Disponible") : "Agotado"}</div>
         <ul class="perks">
           <li>Atención directa por WhatsApp</li>
@@ -660,7 +682,7 @@ function renderDetail() {
         </ul>
         <div class="d-buy">
           <div class="qtybox"><button data-d-minus aria-label="Menos">−</button><span>${dQty}</span><button data-d-plus aria-label="Más">+</button></div>
-          <button class="btn dark" data-d-add ${p.stock ? "" : "disabled"}>AÑADIR AL CARRITO</button>
+          <button class="btn dark" data-d-add ${p.stock && hasPrice(p) ? "" : "disabled"}>AÑADIR AL CARRITO</button>
           <button class="btn" data-d-buy ${p.stock ? "" : "disabled"}>COMPRAR AHORA</button>
         </div>
         <button class="d-wa" data-d-help>💬 ¿Necesitas ayuda con este producto? Escríbenos</button>
@@ -732,14 +754,14 @@ document.addEventListener("click", e => {
   }
   if (t.closest("[data-d-buy]")) {
     const p = find(dId);
-    openWA(`Hola, quiero comprar: ${dQty} x ${p.name}. Precio publicado: ${money(p.price)} c/u. ¿Está disponible?`);
+    openWA(`Hola, quiero comprar: ${dQty} x ${p.name}.${hasPrice(p) ? " Precio publicado: " + money(p.price) + " c/u." : " ¿Me confirman el precio?"} ¿Está disponible?`);
   }
   if (t.closest("[data-d-help]")) openWA(`Hola, necesito ayuda con este producto: ${find(dId).name}.`);
 
   const buy = t.closest("[data-buy]");
   if (buy) {
     const p = find(buy.dataset.buy);
-    openWA(`Hola, quiero consultar/comprar: ${p.name}. Precio publicado: ${money(p.price)}. ¿Está disponible?`);
+    openWA(`Hola, quiero consultar/comprar: ${p.name}.${hasPrice(p) ? " Precio publicado: " + money(p.price) + "." : " ¿Me confirman el precio?"} ¿Está disponible?`);
   }
   const add = t.closest("[data-add]");
   if (add) {
