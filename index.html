@@ -256,6 +256,35 @@ body{background:#05060f}
 .section-head h2,.contact h2{color:#fff}
 .section-head p,.count,.contact p{color:#b9c6e6}
 @media(prefers-reduced-motion:reduce){.bg-img,.bg-sweep,.bg-glow{animation:none!important}}
+/* Videojuegos (inventario) */
+.games{display:none}
+.games.open{display:block}
+.g-card{background:#fff;border:1px solid var(--line);border-radius:10px;padding:18px}
+.g-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+.g-head h3{margin:0;font-size:20px}
+#gCount{color:var(--muted);font-size:12px}
+.g-search{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.g-search input[type=search]{flex:1;min-width:200px;border:2px solid var(--cyan);border-radius:6px;padding:13px 14px;font-size:15px;outline:0}
+.g-check{font-size:13px;color:#444;display:flex;align-items:center;gap:6px;white-space:nowrap}
+.g-hint{margin:8px 0 10px;font-size:12px;color:var(--muted)}
+.g-letters{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:12px}
+.g-l{min-width:32px;padding:7px 8px;border:1px solid #dddde3;border-radius:4px;background:#fff;font-size:12px;font-weight:bold;color:#333}
+.g-l.on{background:var(--cyan);border-color:var(--cyan);color:#111}
+.g-l:disabled{opacity:.3;cursor:not-allowed}
+.g-list{max-height:70vh;overflow:auto;border:1px solid var(--line);border-radius:8px}
+.g-row{display:grid;grid-template-columns:64px 1fr 120px 110px;gap:10px;align-items:center;padding:10px 12px;border-bottom:1px solid var(--line);font-size:14px}
+.g-row:last-child{border-bottom:0}
+.g-row.hd{position:sticky;top:0;z-index:1;background:#f3f4f8;font-size:11px;font-weight:900;color:#666;text-transform:uppercase;letter-spacing:.5px}
+.g-q{font-weight:900;text-align:center}
+.g-row.out .g-q{color:#c0392b}
+.g-row.out .g-n{color:#888}
+.g-n em{font-style:normal;font-size:10px;font-weight:900;background:#555;color:#fff;padding:2px 6px;border-radius:3px;margin-left:6px}
+.g-p{font-weight:900;text-align:right}
+.g-b{border:0;border-radius:4px;background:var(--dark);color:#fff;font-size:11px;font-weight:900;padding:9px 8px}
+.g-b:hover{background:var(--cyan);color:#111}
+.g-msg{padding:26px;text-align:center;color:var(--muted);margin:0}
+.g-note{margin:12px 0 0;font-size:12px;color:var(--muted)}
+@media(max-width:600px){.g-row{grid-template-columns:38px 1fr 78px 38px;gap:8px;padding:9px 8px;font-size:13px}.g-b span{display:none}.g-card{padding:12px}}
 @media(min-width:601px){.header{position:sticky;top:0}}
 @media(max-width:900px){.top{gap:15px;padding:16px 18px}.products{grid-template-columns:repeat(3,minmax(0,1fr))}.categories,.benefits{grid-template-columns:repeat(2,1fr)}main{padding:0 18px}.action-text{display:none}}
 @media(max-width:600px){html{scroll-padding-top:20px}.promo{font-size:10px}.top{padding:14px;flex-wrap:wrap;gap:12px}.logo img{height:68px}.search{order:3;flex-basis:100%;max-width:none}.nav-inner{padding:0 15px;gap:22px}main{padding:0 12px}.hero{min-height:290px;margin-top:14px}.hero-content{padding:30px 23px}.hero-decoration{right:0;font-size:115px}.hero h1{font-size:35px}.hero p{font-size:13px}.benefits{gap:8px}.benefit{padding:12px 8px;gap:8px}.benefit .emoji{font-size:21px}.benefit strong,.benefit small{font-size:10px}.section-head h2{font-size:19px}.categories{gap:9px}.category{padding:15px 10px;gap:9px}.category .icon{font-size:26px}.category strong{font-size:11px}.category small{font-size:10px}.products{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.product-image{height:auto}.product-info{padding:10px}.product h3{font-size:12px;min-height:51px}.price{font-size:18px}.buy,.filter{font-size:10px;padding:10px 4px}.promo-banner{padding:22px 16px;flex-direction:column;align-items:flex-start}.footer-inner{padding:30px 18px;grid-template-columns:1fr 1fr;gap:22px}.footer-brand{grid-column:1/-1}}
@@ -294,7 +323,7 @@ body{background:#05060f}
           <a href="#productos" data-category="Consolas" data-q="switch 2">Consolas Nintendo Switch 2</a>
           <a href="#productos" data-category="Consolas" data-q="switch">Consolas Nintendo Switch</a>
         </div></div>
-        <div class="dd-item has-sub"><a href="#productos" data-category="Todos" data-q="juegos">Videojuegos <i>›</i></a>
+        <div class="dd-item has-sub"><a href="#productos" data-category="Juegos PS5">Videojuegos <i>›</i></a>
         <div class="dd-sub">
           <a href="#productos" data-category="Juegos PS5">Juegos PS5</a>
           <a href="#productos" data-category="Juegos PS4">Juegos PS4</a>
@@ -393,6 +422,19 @@ body{background:#05060f}
     <div class="count" id="count" aria-live="polite"></div>
     <div class="products" id="productGrid"></div>
     <div class="empty" id="emptyMessage">No encontramos productos con esa búsqueda.</div>
+    <div class="games" id="gamesPanel">
+      <div class="g-card">
+        <div class="g-head"><h3 id="gTitle">🎮 Juegos</h3><span id="gCount"></span></div>
+        <div class="g-search">
+          <input id="gSearch" type="search" placeholder="Busca el juego aquí" aria-label="Buscar juego" autocomplete="off">
+          <label class="g-check"><input type="checkbox" id="gStock"> Solo disponibles</label>
+        </div>
+        <p class="g-hint">Escribe una letra (por ejemplo <b>L</b>) para ver los juegos que empiezan con ella, o parte del nombre para buscarlo.</p>
+        <div class="g-letters" id="gLetters" aria-label="Filtrar por letra inicial"></div>
+        <div class="g-list" id="gList"></div>
+        <p class="g-note" id="gNote"></p>
+      </div>
+    </div>
   </section>
 
   <section class="section" aria-label="Arma tu fiesta">
@@ -481,37 +523,42 @@ const WHATSAPP_NUMBER = "59168800449";
    Pega entre las comillas el enlace CSV publicado de tu hoja. Si lo dejas vacío, se usan los productos de este archivo. */
 const PRICES_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQaSAzS-A4JsLi1OUyHcKgAmmbZZaEO-MlolMSiuhFSfMHpHQ0Nlt84HEBc7Z-mtRS6nOvnC2fRKgU5/pub?gid=1700546632&single=true&output=csv";
 
+/* VIDEOJUEGOS: el inventario se lee de juegos.csv (solo cantidad, nombre y precio FINAL en Bs).
+   Cada semana: abre convertidor-juegos.html en TU computadora, elige tu Excel y sube a GitHub el juegos.csv que genera.
+   El tipo de cambio y la suma se cambian en el convertidor, no aquí. */
+const GAMES_CSV = "juegos.csv";
+
 /* Productos. stock:false => aparece como AGOTADO. image: usa tus propias fotos (ej. "img/ps5.webp"). */
 const PRODUCTS = [
-  {id:1,name:"PlayStation 5 SLIM (BASICA)",category:"Consolas",price:8400,oldPrice:8500,emoji:"🎮",stock:true,image:"ps5slim.jpg",images:["ps5slim.jpg", "ps5slim2.jpg", "Guía rápida y accesorios PS5.png"],
+  {id:1,name:"PlayStation 5 SLIM (BASICA)",category:"Consolas",price:8400,oldPrice:8500,emoji:"🎮",stock:true,image:"ps5slim.jpg",images:["ps5slim.jpg","ps5slim2.jpg","Guía rápida y accesorios PS5.png"],
     description:"La PS5 Slim ofrece la potencia de la consola en un diseño más compacto y elegante. Disfruta de almacenamiento SSD ultrarrápido con tiempos de carga casi instantáneos, ray tracing para iluminación y reflejos realistas, juegos en alta resolución y el control DualSense con respuesta háptica y gatillos adaptativos.",
-    specs:["Plataforma: PS5", "Modelo: Slim con lector", "Consulta por WhatsApp la capacidad y el contenido de la caja"]},
+    specs:["Plataforma: PS5","Modelo: Slim con lector","Consulta por WhatsApp la capacidad y el contenido de la caja"]},
   {id:2,name:"PlayStation 5 PRO",category:"Consolas",price:17500,oldPrice:0,emoji:"🎮",stock:true,image:"ps5pro.jpg",images:["ps5pro.jpg"],
     description:"La PS5 Pro ofrece más potencia gráfica, ray tracing mejorado y juegos en alta resolución, para la mejor experiencia de PlayStation 5.",
-    specs:["Plataforma: PS5", "Modelo: Pro", "Consulta por WhatsApp la capacidad y el contenido de la caja"]},
-  {id:3,name:"PlayStation 5 SLIM +2 JUEGOS",category:"Consolas",price:8600,oldPrice:8750,emoji:"🎮",stock:true,image:"ps5slim+2juegos.jpg",images:["ps5slim+2juegos.jpg", "ps5slim2.jpg", "Guía rápida y accesorios PS5.png"],
+    specs:["Plataforma: PS5","Modelo: Pro","Consulta por WhatsApp la capacidad y el contenido de la caja"]},
+  {id:3,name:"PlayStation 5 SLIM +2 JUEGOS",category:"Consolas",price:8600,oldPrice:8750,emoji:"🎮",stock:true,image:"ps5slim+2juegos.jpg",images:["ps5slim+2juegos.jpg","ps5slim2.jpg","Guía rápida y accesorios PS5.png"],
     description:"La PS5 Slim ofrece la potencia de la consola en un diseño más compacto y elegante. Disfruta de almacenamiento SSD ultrarrápido con tiempos de carga casi instantáneos, ray tracing para iluminación y reflejos realistas, juegos en alta resolución y el control DualSense con respuesta háptica y gatillos adaptativos.",
-    specs:["Plataforma: PS5", "Modelo: Slim con lector", "Consulta por WhatsApp la capacidad y el contenido de la caja"]},
-  {id:4,name:"PlayStation 5 SLIM +2 JUEGOS (DIGITAL)",category:"Consolas",price:7700,oldPrice:0,emoji:"🎮",stock:true,image:"ps5slim+2juegos.jpg",images:["ps5slim+2juegos.jpg", "ps5slim2.jpg", "Guía rápida y accesorios PS5.png"],
+    specs:["Plataforma: PS5","Modelo: Slim con lector","Consulta por WhatsApp la capacidad y el contenido de la caja"]},
+  {id:4,name:"PlayStation 5 SLIM +2 JUEGOS (DIGITAL)",category:"Consolas",price:7700,oldPrice:0,emoji:"🎮",stock:true,image:"ps5slim+2juegos.jpg",images:["ps5slim+2juegos.jpg","ps5slim2.jpg","Guía rápida y accesorios PS5.png"],
     description:"La PS5 Slim ofrece la potencia de la consola en un diseño más compacto y elegante. Disfruta de almacenamiento SSD ultrarrápido con tiempos de carga casi instantáneos, ray tracing para iluminación y reflejos realistas, juegos en alta resolución y el control DualSense con respuesta háptica y gatillos adaptativos.",
-    specs:["Plataforma: PS5", "Modelo: Slim con lector", "Consulta por WhatsApp la capacidad y el contenido de la caja"]},
+    specs:["Plataforma: PS5","Modelo: Slim con lector","Consulta por WhatsApp la capacidad y el contenido de la caja"]},
   {id:5,name:"PlayStation 5 WOLVERINE (Digital)",category:"Consolas",price:10800,oldPrice:0,emoji:"🎮",stock:true,image:"slim wolverine.jpg",images:["slim wolverine.jpg"],
     description:"La PS5 Slim ofrece la potencia de la consola en un diseño más compacto y elegante. Disfruta de almacenamiento SSD ultrarrápido con tiempos de carga casi instantáneos, ray tracing para iluminación y reflejos realistas, juegos en alta resolución y el control DualSense con respuesta háptica y gatillos adaptativos.",
-    specs:["Plataforma: PS5", "Modelo: Slim DIGITAL", "Consulta por WhatsApp la capacidad y el contenido de la caja"]},
+    specs:["Plataforma: PS5","Modelo: Slim DIGITAL","Consulta por WhatsApp la capacidad y el contenido de la caja"]},
   {id:6,name:"PlayStation 5 SLIM (GHOST OF YOTEI)",category:"Consolas",price:10600,oldPrice:0,emoji:"🎮",stock:true,image:"ps5yotei.jpg",images:["ps5yotei.jpg"],
     description:"La PS5 Slim ofrece la potencia de la consola en un diseño más compacto y elegante. Disfruta de almacenamiento SSD ultrarrápido con tiempos de carga casi instantáneos, ray tracing para iluminación y reflejos realistas, juegos en alta resolución y el control DualSense con respuesta háptica y gatillos adaptativos.",
-    specs:["Plataforma: PS5", "Modelo: Slim con lector", "Consulta por WhatsApp la capacidad y el contenido de la caja"]},
-  {id:7,name:"PlayStation 5 SLIM (FORTNITE)",category:"Consolas",price:8500,oldPrice:8500,emoji:"🎮",stock:false,image:"slim fortnite 2115web-1.jpg",images:["slim fortnite 2115web-1.jpg", "ps5slim2.jpg", "Guía rápida y accesorios PS5.png"],
+    specs:["Plataforma: PS5","Modelo: Slim con lector","Consulta por WhatsApp la capacidad y el contenido de la caja"]},
+  {id:7,name:"PlayStation 5 SLIM (FORTNITE)",category:"Consolas",price:8500,oldPrice:8500,emoji:"🎮",stock:false,image:"slim fortnite 2115web-1.jpg",images:["slim fortnite 2115web-1.jpg","ps5slim2.jpg","Guía rápida y accesorios PS5.png"],
     description:"La PS5 Slim ofrece la potencia de la consola en un diseño más compacto y elegante. Disfruta de almacenamiento SSD ultrarrápido con tiempos de carga casi instantáneos, ray tracing para iluminación y reflejos realistas, juegos en alta resolución y el control DualSense con respuesta háptica y gatillos adaptativos.",
-    specs:["Plataforma: PS5", "Modelo: Slim con lector", "Consulta por WhatsApp la capacidad y el contenido de la caja"]},
+    specs:["Plataforma: PS5","Modelo: Slim con lector","Consulta por WhatsApp la capacidad y el contenido de la caja"]},
   {id:8,name:"PlayStation PORTAL",category:"Consolas",price:0,oldPrice:0,emoji:"🎮",stock:true,image:"playstation-portal.jpg",images:["playstation-portal.jpg"]},
   {id:9,name:"Estación de Carga de PlayStation",category:"Accesorios",price:0,oldPrice:0,emoji:"🔌",stock:true,image:"estacion-de-carga-de-playstation.jpg",images:["estacion-de-carga-de-playstation.jpg"]},
   {id:10,name:"Nintendo Switch 2",category:"Consolas",price:6900,oldPrice:0,emoji:"🕹️",stock:true,image:"nintendo 2 web.jpg",images:["nintendo 2 web.jpg"],
     description:"Consola Nintendo Switch 2 para jugar en casa o donde quieras, con pantalla más grande, mejor rendimiento y los controles Joy-Con 2.",
-    specs:["Plataforma: Nintendo Switch 2", "Consulta por WhatsApp el contenido de la caja y los juegos incluidos"]},
+    specs:["Plataforma: Nintendo Switch 2","Consulta por WhatsApp el contenido de la caja y los juegos incluidos"]},
   {id:11,name:"Nintendo Switch",category:"Consolas",price:4600,oldPrice:0,emoji:"🕹️",stock:true,image:"nintendo oled web-1.jpg",images:["nintendo oled web-1.jpg"],
     description:"Consola Nintendo Switch para jugar en la TV o en modo portátil, con controles Joy-Con y un gran catálogo de juegos.",
-    specs:["Plataforma: Nintendo Switch", "Consulta por WhatsApp el modelo y el contenido de la caja"]},
+    specs:["Plataforma: Nintendo Switch","Consulta por WhatsApp el modelo y el contenido de la caja"]},
   {id:12,name:"Control inalámbrico PS5",category:"Mandos PlayStation",price:780,oldPrice:820,emoji:"🕹️",stock:true,image:"mandosps5colores.jpg",images:["mandosps5colores.jpg"]},
   {id:13,name:"Mando PS5 EDGE",category:"Mandos PlayStation",price:0,oldPrice:0,emoji:"🎮",stock:true,image:"mando-ps5-edge.jpg",images:["mando-ps5-edge.jpg"]},
   {id:14,name:"Mando PS5 FORTNITE",category:"Mandos PlayStation",price:0,oldPrice:0,emoji:"🎮",stock:true,image:"mando-ps5-fortnite.jpg",images:["mando-ps5-fortnite.jpg"]},
@@ -519,8 +566,6 @@ const PRODUCTS = [
   {id:16,name:"Mando PS5 GENSHIN IMPACT",category:"Mandos PlayStation",price:0,oldPrice:0,emoji:"🎮",stock:true,image:"mando-ps5-genshin-impact.jpg",images:["mando-ps5-genshin-impact.jpg"]},
   {id:17,name:"Mando PS5 POP",category:"Mandos PlayStation",price:0,oldPrice:0,emoji:"🎮",stock:true,image:"mando-ps5-pop.jpg",images:["mando-ps5-pop.jpg"]},
   {id:18,name:"Audífonos PS5",category:"Accesorios",price:1200,oldPrice:0,emoji:"🎧",stock:false,image:"https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=600&q=80",images:["https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=600&q=80"]},
-  {id:19,name:"EA SPORTS FC27",category:"Juegos PS5",price:750,oldPrice:800,emoji:"⚽",stock:true,image:"FC27-1 (2).png",images:["FC27-1 (2).png"]},
-  {id:20,name:"God of War Ragnarök PS4",category:"Juegos PS4",price:250,oldPrice:300,emoji:"⚔️",stock:true,image:"https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=600&q=80",images:["https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=600&q=80"]},
   {id:21,name:"Lector de discos PS5",category:"Accesorios",price:1300,oldPrice:0,emoji:"🖱️",stock:false,image:"",images:[]},
   {id:22,name:"PlayStation 4 SLIM",category:"Consolas",price:4200,oldPrice:4500,emoji:"🎮",stock:true,image:"https://images.unsplash.com/photo-1486401899868-0e435ed85128?auto=format&fit=crop&w=600&q=80",images:["https://images.unsplash.com/photo-1486401899868-0e435ed85128?auto=format&fit=crop&w=600&q=80"]},
   {id:23,name:"JBL PARTYBOX 720",category:"Parlantes",price:0,oldPrice:0,emoji:"🔊",stock:true,image:"jbl-partybox-720.jpg",images:["jbl-partybox-720.jpg"]},
@@ -543,15 +588,13 @@ const PRODUCTS = [
   {id:40,name:"JBL MICROFONO",category:"Parlantes",price:0,oldPrice:0,emoji:"🎤",stock:true,image:"jbl-microfono.jpg",images:["jbl-microfono.jpg"]},
   {id:41,name:"JBL FLIP 7",category:"Parlantes",price:0,oldPrice:0,emoji:"🔊",stock:true,image:"jbl-flip-7.jpg",images:["jbl-flip-7.jpg"]},
   {id:42,name:"JBL GRIP",category:"Parlantes",price:0,oldPrice:0,emoji:"🔊",stock:true,image:"jbl-grip.jpg",images:["jbl-grip.jpg"],
-    specs:["Marca: JBL", "Colores disponibles: Azul · Rojo · Negro"]},
+    specs:["Marca: JBL","Colores disponibles: Azul · Rojo · Negro"]},
   {id:43,name:"JBL CLIP 5",category:"Parlantes",price:0,oldPrice:0,emoji:"🔊",stock:true,image:"jbl-clip-5.jpg",images:["jbl-clip-5.jpg"]},
   {id:44,name:"JBL GO 5",category:"Parlantes",price:0,oldPrice:0,emoji:"🔊",stock:true,image:"jbl-go-5.jpg",images:["jbl-go-5.jpg"]},
   {id:45,name:"JBL AUDÍFONOS XBOX 360",category:"Parlantes",price:0,oldPrice:0,emoji:"🎧",stock:true,image:"jbl-audifonos-xbox-360.jpg",images:["jbl-audifonos-xbox-360.jpg"]},
   {id:46,name:"ESTUCHE JBL PARTYBOX 520",category:"Parlantes",price:0,oldPrice:0,emoji:"💼",stock:true,image:"estuche-jbl-partybox-520.jpg",images:["estuche-jbl-partybox-520.jpg"]},
   {id:47,name:"ESTUCHE JBL PARTYBOX 120",category:"Parlantes",price:0,oldPrice:0,emoji:"💼",stock:true,image:"estuche-jbl-partybox-120.jpg",images:["estuche-jbl-partybox-120.jpg"]},
   {id:48,name:"BOSE S1 PRO PLUS",category:"Parlantes",price:0,oldPrice:0,emoji:"🔊",stock:true,image:"bose-s1-pro-plus.jpg",images:["bose-s1-pro-plus.jpg"]},
-  {id:49,name:"Zelda Ocarina of Time",category:"Juegos NSW2",price:1050,oldPrice:0,emoji:"💿",stock:true,image:"zelda-ocarina-of-time.jpg",images:["zelda-ocarina-of-time.jpg"]},
-  {id:50,name:"Super Mario Party Jamboree",category:"Juegos NSW1",price:550,oldPrice:0,emoji:"💿",stock:true,image:"super-mario-party-jamboree.jpg",images:["super-mario-party-jamboree.jpg"]},
   {id:51,name:"DualShock 4 (PS4) Clon",category:"Mandos PlayStation",price:380,oldPrice:0,emoji:"🎮",stock:true,image:"dualshock-4-ps4.jpg",images:["dualshock-4-ps4.jpg"]},
   {id:52,name:"Joy-Con NW2",category:"Mandos Nintendo",price:1500,oldPrice:0,emoji:"🕹️",stock:true,image:"joy-con-nw2.jpg",images:["joy-con-nw2.jpg"]},
   {id:53,name:"Pro Controller NW2",category:"Mandos Nintendo",price:1520,oldPrice:0,emoji:"🕹️",stock:true,image:"pro-controller-nw2.jpg",images:["pro-controller-nw2.jpg"]},
@@ -563,7 +606,7 @@ const PRODUCTS = [
   {id:59,name:"Gift Card Steam",category:"Gift Cards",price:160,oldPrice:0,emoji:"🎁",stock:true,image:"gift-card-steam.jpg",images:["gift-card-steam.jpg"]},
   {id:60,name:"Gift Card Fortnite",category:"Gift Cards",price:0,oldPrice:0,emoji:"🎁",stock:false,image:"gift-card-fortnite.jpg",images:["gift-card-fortnite.jpg"]}
   /* Para agregar uno nuevo: copia una línea con un id NUEVO (61, 62...). No cambies los id de los demás. El orden de la tienda lo marca el orden de las filas de la hoja de Google.
-     Para más fotos agrega nombres a images:["foto1.jpg","foto2.jpg"]. Categorías: Consolas, Mandos PlayStation, Mandos Nintendo, Juegos PS5, Juegos PS4, Juegos NSW2, Juegos NSW1, Accesorios, Parlantes, Gift Cards */
+     Los VIDEOJUEGOS ya no van aquí: se leen de juegos.csv. Categorías: Consolas, Mandos PlayStation, Mandos Nintendo, Accesorios, Parlantes, Gift Cards */
 ];
 
 const $ = s => document.querySelector(s);
@@ -602,6 +645,10 @@ function openWA(message) {
 
 /* Catálogo */
 function renderProducts() {
+  const isGame = GAME_CATS.includes(category);
+  $("#gamesPanel").classList.toggle("open", isGame);
+  ["#productGrid", "#count", "#sort"].forEach(id => $(id).style.display = isGame ? "none" : "");
+  if (isGame) { $("#emptyMessage").style.display = "none"; if (gamesState === "idle") ensureGames(); else renderGames(); return; }
   const term = norm($("#searchInput").value.trim());
   const mode = $("#sort").value;
   let list = PRODUCTS.filter(p =>
@@ -638,6 +685,7 @@ function renderProducts() {
 }
 
 function chooseCategory(c) {
+  if (c !== category && GAME_CATS.includes(c)) $("#gSearch").value = "";
   category = c;
   document.querySelectorAll("#filters .filter").forEach(b => b.classList.toggle("active", b.dataset.category === c));
   renderProducts();
@@ -799,6 +847,14 @@ document.addEventListener("click", e => {
   if (dec && --cart[dec.dataset.dec] <= 0) delete cart[dec.dataset.dec];
   if (rm) delete cart[rm.dataset.rm];
   if (inc || dec || rm) renderCart();
+
+  const gl = t.closest("[data-gl]");
+  if (gl) { $("#gSearch").value = gl.dataset.gl; renderGames(); }
+  const gb = t.closest("[data-gi]");
+  if (gb) {
+    const g = (GAMES[category] || [])[Number(gb.dataset.gi)];
+    if (g) { const pr = g.p; openWA(`Hola, quiero consultar por el juego: ${g.n} (${GAME_TITLES[category]}).${pr ? " Precio: " + money(pr) + "." : ""} ¿Está disponible?`); }
+  }
 });
 
 $("#cartButton").onclick = () => setCart(true);
@@ -812,7 +868,7 @@ $("#sendOrder").onclick = () => {
 
 $("#showAll") && ($("#showAll").onclick = () => chooseCategory("Todos"));
 $("#searchForm").onsubmit = e => { e.preventDefault(); renderProducts(); $("#productos").scrollIntoView(); };
-$("#searchInput").oninput = renderProducts;
+$("#searchInput").oninput = () => { if (GAME_CATS.includes(category)) $("#gSearch").value = $("#searchInput").value; renderProducts(); };
 $("#sort").onchange = renderProducts;
 
 /* Catálogo desde Google Sheets (opcional) */
@@ -857,6 +913,7 @@ async function loadCatalog() {
     const created = [];
     rows.forEach(r => {
       const id = Number(get(r, "id")); if (!id) return;
+      const rc = get(r, "categoria"); if (GAME_CATS.includes(CATEGORIES.find(c => norm(c) === norm(rc)) || rc)) return;
       let p = find(id); const isNew = !p;
       if (isNew) p = {id, name: "", category: "", price: 0, oldPrice: 0, emoji: "🛍️", stock: true, image: ""};
       const nombre = get(r, "nombre"); if (nombre) p.name = nombre;
@@ -936,6 +993,90 @@ document.querySelectorAll(".wa").forEach(a => {
     document.addEventListener("visibilitychange", () => { cancelAnimationFrame(raf); if (!document.hidden) raf = requestAnimationFrame(loop); });
   }
 })();
+
+/* ===== VIDEOJUEGOS: inventario desde juegos.csv (solo cantidad, nombre y precio final en Bs) ===== */
+const GAME_CATS = ["Juegos PS5", "Juegos PS4", "Juegos NSW2", "Juegos NSW1"];
+const GAME_TITLES = {"Juegos PS5": "Juegos PS5", "Juegos PS4": "Juegos PS4", "Juegos NSW2": "Juegos Nintendo Switch 2", "Juegos NSW1": "Juegos Nintendo Switch"};
+let GAMES = {}, GAME_DATES = {}, gamesState = "idle";
+
+/* -- funciones puras de juegos -- */
+const esc = s => String(s).replace(/[&<>"']/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"}[c]));
+const gameMatches = (g, q, onlyStock) => (!onlyStock || g.q > 0) && (!q || (q.length === 1 ? norm(g.n).startsWith(q) : norm(g.n).includes(q)));
+function gamePlatform(v) {
+  const s = norm(String(v)).replace(/[^a-z0-9]+/g, " ").trim();
+  if (/\bps5\b/.test(s)) return "Juegos PS5";
+  if (/\bps4\b/.test(s)) return "Juegos PS4";
+  if (/(switch|nintendo|nsw)\s*2\b/.test(s)) return "Juegos NSW2";
+  if (/(switch|nintendo|nsw)/.test(s)) return "Juegos NSW1";
+  return "";
+}
+function parseGamesCSV(text) {
+  const rows = parseCSV(text);
+  const head = rows.shift().map(h => norm(h).trim().replace(/\s+/g, "_"));
+  const ip = head.indexOf("plataforma"), iq = head.indexOf("cantidad"), id = head.indexOf("actualizado");
+  const iname = head.findIndex(h => h === "juego" || h === "nombre"), ipr = head.findIndex(h => h.startsWith("precio"));
+  if (ip < 0 || iname < 0) throw new Error("juegos.csv debe tener las columnas plataforma, cantidad, juego y precio_bs");
+  const out = {}, dates = {};
+  rows.forEach(r => {
+    const cat = gamePlatform(r[ip]), n = String(r[iname] ?? "").replace(/\s+/g, " ").trim();
+    if (!cat || !n) return;
+    const q = Number(r[iq]), p = ipr >= 0 ? parseNum(r[ipr] ?? "") : 0;
+    (out[cat] = out[cat] || []).push({q: Number.isFinite(q) && q > 0 ? q : 0, n, p: p > 0 ? p : 0});
+    if (id >= 0 && r[id] && !dates[cat]) dates[cat] = String(r[id]).trim();
+  });
+  Object.values(out).forEach(l => l.sort((a, b) => norm(a.n).localeCompare(norm(b.n))));
+  return {out, dates};
+}
+/* -- fin funciones puras -- */
+
+const GAMES_RESPALDO_FECHA = "11-11-26";
+const GAMES_RESPALDO = {"Juegos PS5":[[1,"(WRC) 23",386],[0,"A PLAGUE TALE REQUIEM",410],[0,"ALAN WAKE 2 DELUX EDICION",494],[2,"ARK SURVIVAL ASCENDED",458],[5,"ASSASINS CREED BLACK FLAG RESYNCED",686],[1,"ASSASSINS CREDD SWADOWS",674],[1,"ASSASSINS CREED MIRAGE",350],[0,"ASSASSINS CREED VALHALLA",314],[2,"ASTRO BOT",566],[1,"BABYLONS FALL",0],[1,"BALATRO",434],[1,"BATTLEFIELD 6",530],[1,"BENDY",542],[2,"CALL OF DUTY BLACK OPS 7",458],[1,"CALL OF DUTY BLACK OPS COLD WAR",446],[2,"CALL OF DUTY MODER WARFARE 2 AMERICANO",410],[1,"CALL OF DUTY MODER WARFARE 3",458],[6,"CALL OF DUTY MODERN WARFARE 4",686],[2,"CAPITAN TSUBASA 2 WORLD FIGHTERS",698],[0,"CASTLEVANIA BELMONTS CURSE",482],[2,"CODE VEIN 2",698],[1,"CONTROL RESONANT",710],[1,"CONTROL ULTIMATE EDITICION",362],[1,"CRASH RUMBLE",386],[3,"CRIMSON DESERT",806],[0,"CRONOS THE NEW DAWN",422],[0,"CYBERPUNK ULTIMATE EDICION",518],[2,"DAWNWALKER TAPA METALICA",818],[1,"DEAD ISLAND 2 DAY ONE EDITION",314],[1,"DEAD SPACE",374],[2,"DEATH STRANDING 2 ON THE BEACH",650],[2,"DEATH STRANDING DIRECTOR CUT",398],[1,"DEMON SLAYER 2 THE HINOKANI CHRONICLES",602],[2,"DEMON SOLUS",470],[1,"DEVIL MAY CRY 5 SPECIAL EDICION",302],[1,"DIABLO 4",638],[1,"DOOM 1 Y 2",506],[2,"DOOM THE DARK AGES",578],[0,"DRAGON ACE",566],[1,"DRAGON BALL FIGTER Z",314],[1,"DRAGON BALL KAKAROT",290],[2,"DRAGON BALL KAKAROT DIAMA EDITION",578],[0,"DRAGON BALL SPARKING ZERO",530],[0,"DRAGON BALL XENOVERSE 2",314],[1,"DRAGON DOGMA 2",506],[2,"DYING LIGHT 2",326],[1,"ELDEN RING AMER",566],[0,"ELDEN RING EU",482],[0,"ELDEN RING NIGHTREIGN",410],[0,"ELDEN RING NIGHTREIGN EDITION DELUXE",626],[0,"EXPEDITION 33 AMER.",602],[2,"EXPEDITION 33 EU",554],[0,"FARCRY 6",470],[2,"FATAL FRAME 2",686],[0,"FC 25",422],[1,"FC 26",530],[0,"FC 27",806],[2,"FINAL FANTASY 7 REMAKE INTERGRADE",398],[0,"FINAL FANTASY XVI",350],[2,"FIRS LIGTH 007",818],[1,"FIVE NIGHTS AT FREDDYS INTO PIT",410],[1,"FIVE NIGHTS AT FREDDYS SEGURITY BREACH",434],[0,"FORMULA 2021",446],[0,"FORMULA 2023",470],[0,"FORMULA 2024",554],[1,"FORMULA 2025",482],[2,"FORNITE COD",326],[0,"GEARS OF WAR RELDADED",506],[1,"GHOST OF YOTEI",758],[2,"GHOST OF YOTEI COMPLETE EDITION",782],[2,"GHOST TSUSHIMA DIRECTOR",482],[6,"GOD OF WAR RAGNAROCK",458],[1,"GODFALL",530],[1,"GOTHAM KINGHTS",302],[2,"GRAN TURISMO 7",482],[9,"GTA V",314],[0,"GUARDIANES DE LA GALAXIA",398],[1,"HADES",530],[4,"HALO CAMPAIGN EVOLVED",746],[1,"HELLDIVERS 2",470],[0,"HELLRAISER REVIVAL CLIVE BARKERS",506],[1,"HITMAN WORLD OF ASSASSINATION",470],[2,"HOGWARTS LEGACY",398],[1,"HORIZON FORBIDDEN WEST COMPLETO",566],[1,"HORIZON ZERO DAWN REMASTERED",422],[0,"INDIANA JONES",758],[1,"INMORTAL FENIX RISING",590],[0,"INVENCIBLE VS",518],[2,"JURASSIC WORLD EVOLUTION 2",398],[2,"JUST DANCE 2021",314],[1,"JUST DANCE 2023 EDICION",242],[0,"JUST DANCE 2024",530],[0,"JUST DANCE 2025",578],[2,"KINGDOM HEARTS COLLECTION 1-3",854],[0,"LEGO 2K DRIVE",278],[1,"LEGO BRAWLS",326],[0,"LEGO HARRY POTERR COLLECTION",362],[0,"LEGO HORIZON AVENTURA",506],[0,"LEGO STAR WAR THE LA SAGA",446],[2,"LIES OF P",542],[4,"LIFE IS STRANGE COLECCIÓN",674],[17,"LIFE IS STRANGE REUNION",554],[1,"LITTE NIGHTMARES 2",338],[2,"LITTE NIGHTMARES 3",434],[1,"LORDS OF THE FALLEN DELUXE EDITION",326],[1,"LOST JUDMENT",446],[1,"MAFIA THE OLD COUNTRY",602],[2,"MARVEL TOKON FIGHTING SOULS",722],[4,"METAL GEAR SOLID 5 SNAKE EATER",686],[1,"METAL GEAR SOLIS 1 MASTER",422],[0,"METAL SLUG TACTICS",482],[4,"MINECRAFT",422],[1,"MINECRAFT LEGEN",386],[2,"MORTLA KOMBAT 1",398],[6,"MORTLA KOMBAT 11 ULTIMATE",302],[1,"MOSTER HUNTER WILS",446],[1,"MOUSE PI FOR HIRE",446],[1,"MY HERO ACADEMIA ALL JUSTICE",650],[2,"NARUTO X BORUTO CONNECTIONS",302],[1,"NBA 2021",374],[1,"NBA 2024",542],[2,"NBA 2K 2026",398],[1,"NINJA GAIDEN 4",602],[1,"NIOH 3 ESTÁNDAR",458],[3,"NIOH 3 STEELBOOK LAUNCH EDITION",746],[0,"NIOH COLLECTION",398],[2,"NO MANS SKY",314],[1,"ONE PIECE ODYSSEY",350],[3,"ONIMUSHA WAY OF (TAPA METALICA)",914],[0,"OVERCOOKED ALL YOU CAN EAT",314],[2,"PAW PATROL",314],[2,"PERSONA 3 RELOAD",446],[1,"PERSONA 5 ROYAL",398],[3,"POPPY PLAYTIME",422],[0,"PRAGMATA",602],[0,"PRINCIPE DE PERSA",614],[3,"RAYMAN 30TH ANNIVERSARY",422],[0,"REANIMAL",518],[2,"RED DEAD REDEMPTION 1",434],[1,"RESIDENT EVIL 2",314],[3,"RESIDENT EVIL 3",338],[0,"RESIDENT EVIL 4 GOL EDITION",458],[1,"RESIDENT EVIL 4 RAMAKE",326],[2,"RESIDENT EVIL 7 BIOHAZARD GOLD EDITION",290],[8,"RESIDENT EVIL 9 REQUIM",830],[2,"RESIDENT EVIL VILLAGE",266],[6,"RESIDENT EVIL VILLAGE GOLD EDITION",350],[4,"RESONANCE A PLAGUE TALE LEGASY",686],[2,"RETURNAL",386],[1,"ROBOCOP ROGUE CITY",386],[1,"SACKBOY AVENTURA",398],[2,"SAROS",770],[1,"SILEN HILL 2",470],[4,"SILEN HILL TOWNFALL",566],[0,"SILENT HIL F",494],[4,"SNIPER ELITE 5",386],[2,"SNIPER ELITE RESISTANCE DELUXE EDICION",638],[0,"SNOOPY AND THE GREAT",482],[0,"SONIC FRONTIER",398],[1,"SONIC RAGING CROS WORLD",770],[1,"SONIC SUPER STAR",362],[1,"SONIC X SHADOWS GENERATION",422],[1,"SPACE MARINE",470],[4,"SPIDER MAN 2",542],[2,"SPIDERMAN MILES MORALES",362],[3,"SPIDERMAN MILES MORALES ULTIMATE",518],[1,"SPLIT FICTION",566],[2,"SPONGEBOB SQUAREPANT TITAN OF THE TIDE",494],[0,"SQUIA SUISIDA",590],[3,"STAR WARD GALACTIC RACERS",698],[2,"STAR WARS JEDI SURVIVOR AM",458],[1,"STAR WARS OUTLAWS EDICION LIMITADA",458],[0,"STAR WARS QUITLAW",554],[2,"STARFIELD",578],[2,"STELLAR BLADE",590],[0,"STRAY",314],[1,"STREET FIGTER 6",386],[9,"TEKKEN 8",374],[1,"TERMINATOR 2D NO FATE",530],[0,"TERMINATOR 2D NO FATE COLLECTOR",1490],[0,"THE CALISTO PROTOCOLL",302],[1,"THE HOUSE OF THE DEAD 2 REMAKE INFECT",494],[1,"THE KING OF FIGHTERS XV",314],[0,"THE LAST OF US PARTE 1",470],[5,"THE LAST OF US PARTE 2 AMERICANO",470],[2,"THE OUTER WORLDS 2",686],[1,"TOMB RAIDER I - III REMASTERD",410],[1,"TOMB RAIDER IV - VI - VI",398],[0,"TORTUGAS CAWABUNGA",530],[1,"TUROK TRIOLOGIA",506],[2,"UFC 5",374],[3,"ULTIL DAWN",470],[3,"UNCHARTED COLECCIÓN",386],[1,"W2K25",314],[6,"W2K26",806],[1,"WATCH DOGS LEGION",290],[9,"WOLVERINE",806],[2,"WORLD WARZ Z ALTERMANTH",386],[2,"WRC10",302],[0,"WUKONG",662],[1,"YAKUSA 0 DIRECTORS CUT",626]],"Juegos PS4":[[1,"ACE CONBAT 7",314],[0,"AGONY",530],[2,"ALADDIN EL REY LEON",470],[0,"ALAN WAKE REMAS TER",350],[1,"ALEKHINES GUN",470],[5,"ANTHEM",254],[1,"APEX LEGENDS BLOOHOND NARANAJA",170],[1,"APEX LEGENDS rojo",230],[2,"AREALM REBORN FINAL FANTASY XIV",230],[0,"ARK SUVIVIAL EVOLED",314],[2,"ASSASSINS CREDD ORIGINS",266],[0,"ASSASSINS CREDD THE EZIO COLECCIÓN",254],[0,"ASSASSINS CREED 3 REMASTER",242],[0,"ASSASSINS CREED 4",242],[0,"ASSASSINS CREED BLACK FLAG",266],[0,"ASSASSINS CREED ODYSSED Y ORIGEN",266],[2,"ASSASSINS CREED ODYSSEY",266],[2,"ASSASSINS CREED UNITY",254],[1,"BAILA LATINO",350],[2,"BATMAN ARKHAM COLLECITON",314],[0,"BATMAN ARKHAM KNIGHT",266],[11,"BATMAN THE ENEMY WITHIN",326],[4,"BATMAN VR",314],[1,"BATTLE BIKINI BOTTOM BOB SPONJA",470],[0,"BATTLEBORN",170],[1,"BATTLEFILD 2042",374],[2,"BATTLEFILD V",266],[4,"BATTLEFILD V DELUXE EDICION",326],[11,"BATTLEFILD V NOW INCLUDES FIRESTORM",290],[1,"BATTLTLEDIELD 4",362],[0,"BEN 10",254],[3,"BLAZBLUE CROSS TAG BATTLE",470],[0,"BLOODBORNE",254],[2,"BLOODBORNE GAME EDITION",362],[1,"BLOODSTAINES",410],[0,"BORDERLANDS 3",302],[1,"BORDERLANDS THE COLECCIÓN",350],[1,"CALL OD DUTY WW 2 EU",338],[0,"CALL OF DUTY BLACK OPS 3",350],[1,"CALL OF DUTY BLACK OPS 4",386],[2,"CALL OF DUTY BLACK OPS 6",578],[2,"CALL OF DUTY BLAXK OPS 7",422],[2,"CALL OF DUTY COL WAR",410],[3,"CALL OF DUTY MODER WARFARE 2",362],[0,"CALL OF DUTY MODER WARFARE 3",578],[1,"CALL OF DUTY VANGUARD ING",302],[3,"CIVILAZATION VI",470],[1,"CONTRA ROGUE CORPS",290],[5,"CRASH 4 BANDICOOT",374],[3,"CRASH BANDICOOT TRILOGY",386],[6,"CRASH TEAM RASING CTR",386],[0,"CUPHEAD",338],[4,"DAR SOLUS TRIOLOGIA",470],[2,"DARK SOLUS 3",290],[3,"DARK SOLUS REMASTER",302],[1,"DAYS GONE",386],[41,"DEAD OR ALIVE 6",290],[1,"DEAD RISING 2",290],[1,"DEATH MARK",290],[1,"DEATH STRANDING",314],[1,"DESTINY 2",170],[1,"DESTINY LEGENDARY EDICION",194],[0,"DETROIT",242],[2,"DEVIL MAY CRY HD COLLECTION",302],[5,"DIABLO 3 ETERNAL COLLECCION",314],[1,"DIABLO 4",434],[0,"DIGIMONTORY HACKERS MEMORY",266],[9,"DISHONRED 2",266],[7,"DISSIDIA FINAL FANTISI",266],[1,"DOOM 3 VR EDICION",350],[3,"DOOM ETERNAL",386],[2,"DRAGON BALL FIGTER Z",290],[2,"DRAGON BALL KAKAROT",290],[2,"DRAGON BALL XENOVERSE 2",290],[26,"DRAGON DAWN OF NEW RIDERS",350],[5,"DRAGON QUEST",470],[2,"DYING LIGHT 2 HUMAN",278],[0,"DYING LIGHT ANIVERSARIO EDICION",506],[3,"ELDEN RING NEIGHTREIGN EU",542],[1,"ELDEN RING NORMAL AMER.",374],[0,"ELDEN RING NORMAL EU.",422],[2,"FALLOUT 76",386],[0,"FARCRY 4",230],[0,"FARCRY 5",290],[33,"FARCRY NEW DAWN",254],[0,"FARCRY PRIMAL",278],[1,"FARPOINT",470],[0,"FC 25",470],[0,"FC 26",506],[21,"FC 27",806],[2,"FINAL FANTASY XIV COMPLETA EDICION",470],[0,"FINAL FANTASY XV",470],[1,"FINAL FANTISI VII CRISIS CORE REUNION",350],[1,"FIVE NIGHTS AT FREDDYS CORE COLLECTION",326],[0,"FIVE NIGHTS AT FREDDYS HELP WANTED",302],[1,"FIVE NIGHTS AT FREDDYS SECURITY BREACH",326],[1,"FORMULA 2017",410],[0,"FORMULA 2018",410],[0,"FORMULA 2020",410],[1,"FORMULA 2021",410],[0,"FORMULA 2023",350],[1,"FORTNITE ANIME",350],[5,"GANG BEASTS",266],[1,"GHOST OF TSUSHIMA",314],[3,"GHOST RECON WILDLANDS",266],[2,"GHOST TSUSHIMA EDICION DIRECTORIO",422],[8,"GOD OF WAR 3",278],[5,"GOD OF WAR 4",278],[7,"GOD OF WAR RAGNAROCK AMER.",350],[3,"GRAN TURISMO 7",386],[3,"GTA TRYLOGIA AMERICANO",326],[18,"GTA V PREMIUM EDITION",290],[1,"HADES",530],[0,"HITMAN 2",338],[0,"HITMAN 3",338],[0,"HITMAN DEFINITEVE EDITION",350],[2,"HOGWARTS LEGACY",338],[3,"HOLLOW KNIGHT",362],[1,"HORIZON ZERO DAWN",266],[0,"HORIZON ZERO DAWN EDICON COMPLETA",290],[3,"INFAMOUS SECOND SON",230],[1,"INJUSTE ULTIMATE EDITION",266],[3,"INJUSTICE 2 LEGENDARY",290],[4,"IT TAKES TWO",398],[1,"J- STARS VICTORY",326],[1,"JUST CAUSE 4",326],[0,"JUST DANCE 2017",278],[1,"JUST DANCE 2020",278],[0,"JUST DANCE 2022",290],[3,"KILLZONE SHADOW FALL",314],[10,"KINGDON HEARTS 3",278],[0,"KINGDON HEARTS THE STORS SO",326],[0,"LEGO BATMAN BEYON 3",254],[1,"LEGO BRAWLS",302],[2,"LEGO CITY",266],[1,"LEGO GLI INCREDIBILI LOS INCREIBLES",266],[0,"LEGO HARRY POTRET COLECCIÓN",314],[0,"LEGO MARVEL COLLECTION",266],[1,"LEGO NINJAGO",302],[0,"LEGO STAR WARS THE SKYWALKERS",266],[1,"LEGO VIDEO GAME",290],[1,"LEGO WORLDS",350],[2,"LIES OF P",554],[2,"LIFE STRANGE 2",314],[2,"LITLE NIGHTMARES 2",290],[2,"MAFIA 3",314],[0,"MARVEL AVENGERS",314],[2,"MARVEL GUARDIANES DE LA GALAXIA",410],[3,"MARVEL IRON MAN VR",410],[2,"MARVEL VS CAPCOM FIGHTING ARCADE CLASSIC",542],[1,"MARVEL VS CAPCOM INFINITE",302],[4,"MASS EFFECT ANDROMEDA",290],[0,"MEDIEVIL",350],[0,"MEGAMAN 1 Y 2",386],[2,"MEGAMAN 11",350],[1,"METAL GEAR SOLID 5",302],[45,"METRO EXODUS",290],[2,"METRO REDUX",314],[0,"MINECRAFT AMER.",410],[3,"MINECRAFT LEGENDS",494],[1,"MIRRORS EDGE CATALYST",350],[2,"MONSTER HUNTER ICEBORNE MASTER EDITION",362],[9,"MORTAL KOMBAT 11 ULTIMATE",254],[0,"MORTAL KOMBAT XL",254],[0,"MORTLA KOMBAT 11",278],[0,"MOTO GP 17",278],[0,"MOTO GP 18",278],[0,"MX VS ATV ALL OUT 2020 PRO NATIONALS EDITION",254],[1,"MY PEPA PIG",278],[1,"NARUTO BORUTO COLLECTION",290],[2,"NARUTO SHIPUDEN STRONK 4",314],[0,"NARUTO ULTIMATE TRIOLOGIA",338],[0,"NBA 2K 20",350],[0,"NEED FOR SPEED HOT PURSUIT",290],[1,"NEED FOR SPEED PAY BACK",290],[0,"NEED FOR SPEED REPLICANT",386],[0,"NEED FOR SPEED RIVALS",314],[6,"NHL 19",170],[2,"NI NO KUNI 2",350],[0,"NIER AUTOMATA GOTY",302],[4,"NIER REPLICAN",374],[2,"NIKELODEON KART RACERS",350],[3,"NIOH 2",278],[2,"ONE PIECE WORLD SEEKER",398],[3,"OUTER WORLDS",470],[4,"OVERCOOKED 1 Y 2",302],[2,"OVERCOOKED ALL YOU CAN EAT",302],[1,"PARADISE REMASTER",410],[1,"PAST CURE",410],[0,"PAW PATROL",350],[0,"PLANTAS VS ZOMBIES BATTLE FOR NIGHTBOR",302],[2,"PLAYERRUNKNO BATTLEGROUDS",290],[1,"PLAYSTATION VR DEMO DISC",0],[2,"PREY",290],[2,"PRINCE OF PERSIA",506],[14,"PROJECT CARS 3",314],[1,"PROJECT CARS 4",470],[4,"RATCHET CLANK",278],[2,"RAYMAN LEYEND",278],[5,"RED DEAD REDEMTION 1",326],[1,"RED DEAD REDEMTION 2",290],[3,"RESIDEN EVIL 2 REMAKE",314],[5,"RESIDEN EVIL 3 REMAKE",302],[1,"RESIDEN EVIL 4",266],[5,"RESIDEN EVIL 4 REMAKE",314],[8,"RESIDEN EVIL 5",254],[2,"RESIDEN EVIL 6",254],[1,"RESIDENT EVIL 2 REVELATION",266],[3,"RESIDENT EVIL 7 BIOHAZARD GOLD EDITION",314],[2,"RESIDENT EVIL 8 VILLAGE",278],[2,"RESIDENT EVIL 8 VILLAGE GOLD EDICITION",374],[0,"RESIDENT EVIL ORIGINS COLLECTION",266],[2,"SACKBOY",362],[0,"SHADOW OF THE TOMB RAIDER",302],[5,"SHADOW OF WAR",302],[1,"SHADOW TACTICS",350],[2,"SIMS 4",290],[1,"SLIME RANCHER",350],[0,"SONIC FORCE",422],[2,"SONIC FRONTIER",398],[1,"SONIC MANIA",314],[1,"SONIC RACING CROSSWORLD",674],[0,"SONIC SHADOW GENERACION",530],[0,"SPIDER MAN MILES MORALES",374],[0,"SPIDERMAN ED. JUEGO DEL AÑO",470],[0,"SPYRO",314],[1,"STAR WARS JEDY FALLEN ORDER",302],[0,"STARWARS SQUADRONS",230],[2,"STORMBLOOD FINAL FANTASY XIV",230],[0,"STRAY",326],[3,"STREET FIGHTER 30 ANIVERSARIO",326],[2,"STREET FIGHTER 5 ARCADE EDITION",314],[2,"STREET FIGHTER 5 CHAMPION EDITION",350],[0,"STREET FIGHTER 6",314],[1,"STREET FIGHTER 6 YEARS 1-2 FIGHTERS EDITION",638],[2,"STREETR FIGHTER 4 OF RAGE",290],[1,"SUPER BOMBER 2",350],[2,"SUPERBEAT XONIC",350],[9,"TEKKEN 7",254],[1,"TERMINATOR RISISTERNCIA",470],[5,"THE CALISTO PROTOCOL",482],[2,"THE COWABUNGA TORTUGAS NINJA",470],[0,"THE CREW 2",410],[3,"THE ELDER SCROLLS GOL EDITION",314],[0,"THE EVIL WITHIN 2",290],[2,"THE KING OF FIGHTERS XV",470],[5,"THE LAS OF US PARTE 1",266],[9,"THE LAS OF US PARTE 2",374],[1,"THE PERSISTENCE",470],[1,"THE PHATOM PAIN METAL GEART SOLID V",314],[1,"THE SURGE",350],[2,"THE TECHNOMANCER",314],[0,"THE WALKING DEAD DEFINITIVE SERIES",242],[0,"THE WITCHER WILL HUNT",338],[6,"TOM CLANCYST RAIBOWNS SIX",302],[1,"TOMB RAIDER REMASTER IV - V - VI",410],[0,"TOMB RAIDER RISE OF THE 20 YEAR CELEBRATION",290],[5,"TONY HANK PRO SKATER 1 Y 2",470],[1,"TOY SOLDIERS",230],[0,"TRANFORMERS BATTLEGROUNDS",290],[1,"UNCHARTED COLLECTION",266],[5,"UNTIL DAW RUSH OF BLOOD",194],[0,"UTIL DANW",218],[2,"VALENTINO ROSSI THE GAME",290],[1,"VALKYRIE",350],[0,"W2K 24",386],[0,"W2K25",398],[2,"WATCH DOGS",254],[2,"WATCH DOGS 2",278],[3,"WATCH DOGS LEGION",398],[1,"WOLTENSTEIN YOUNG BLOOD DELUXE EDITION",230],[0,"WORD WAR Z AFTHERMAN",314]],"Juegos NSW2":[[0,"ANIMAL CROSSING",746],[1,"ASSASSINS SHADOW",746],[2,"CALL OF DUTY MODERN WARFARE 4",686],[0,"CYBERPUNK 2077",794],[1,"DONKEY KONG BANANZA",878],[1,"DRAGON BALL SPARKING ZERO",662],[4,"ELDEN RING TAMISHED EDITION",890],[5,"FATAL FRAME 2",686],[4,"FC 26",794],[7,"FC 27",806],[0,"FINAL FANTASY VII INTEGRADE",518],[3,"FIRE EMBLEM FORTUNES WEAVE",998],[1,"HADES 2",578],[1,"HITMAN SIGNATURE EDITION",770],[2,"HOGWARTS LEGACY EU",674],[6,"HYRULE WARRIOS AGE OF IMPRISONMENT",914],[3,"KIRBY AIR RIDERS",914],[2,"KIRBY AND THE FORGOTTENLAND + STAR - CROSSED WORLD",938],[2,"LEGO BATMAN",770],[0,"LIES OF P",770],[1,"LITLE NIGHTMARES 3",578],[2,"MARIO JAMBOREE + TV",854],[0,"MARIO KART WOLD",938],[2,"MARIO TENNIS FEVER",878],[1,"MARIO WONDER + MEETUP",890],[5,"METAL GEAR SOLID MASTER COLLECTION VOL. 2",554],[2,"METROID 4 PRIME BEYOND",938],[1,"MORTAL KOMBAT LEGACY KOLLECTION DELUXE EDICION",638],[0,"MOUSE PI FOR HIRE",518],[0,"OCTOPATH TRAVELER",602],[0,"PAC-MAN 2",362],[1,"PERSONA 3 ROLOAD",746],[12,"POKEMON LEGENDA ZA",830],[1,"POKEMON POKOPIA",926],[2,"PRAGMATA",686],[2,"REANIMAL",554],[3,"RESIDENT EVIL REQUIEM",830],[1,"SONIC RACING CROSSWORLD",770],[4,"SONIC SHADOW GENERATION",602],[3,"SPLATOON RAIDERS",818],[0,"SPLIT FICTION",626],[0,"SPONGEBOB SQUAREPANT TITAN OF THE TIDE",506],[2,"STAR FOX",866],[1,"STARWARS OUTLAWS",686],[0,"STREET FIGHTER 6 EDITION",830],[1,"STREET FIGHTER 6 YEAR 1-2 FIDHTERS EDITION",662],[0,"W2K 26",818],[1,"YAKUSA 0 DIRECTOR CUT",518],[1,"YAKUSA KIWAMI 2",482],[1,"YAKUZA KIWAMI",482],[2,"ZELDA BREATH OF THE WILD",818],[14,"ZELDA OCARINA OF TIME",1082],[0,"ZELDA TEARS OF THE KIMDOM",854]],"Juegos NSW1":[[3,"1-2 SWITCH",530],[2,"ANIMAL CROSSIG NEW HORIZON",578],[1,"ARMS",578],[3,"BATMAN ARKHAM TRILOGY",626],[1,"BAYONETTA 3",530],[0,"BAYONNETTA ORIGINS CERESA",530],[1,"BIOSHOCK THE COLLECTION",398],[1,"BLAZBLUE CROSS TAG BATTLE",530],[1,"BLOODSTAINED RITUAL OF THE NIGHT",530],[1,"BOMB RUSH CYBERPUNK",302],[1,"CADENCE OF HYRULE : CRYPT OF THE NECRODANCER FEATURING THE LEGEND OF ZELDA",530],[0,"CAPCOM FIGHTING COLLECCION 2",506],[1,"CAPITAIN TOAD",566],[0,"CAPITAN TSUBASA",314],[2,"CAPITAN TSUBASA II WORLD FIGHTEERS",686],[1,"CONTRA ROGUE CORPS",470],[0,"CRASH BADICOOT 4",398],[1,"CRASH BANDICOOT TRIOLOGY",398],[3,"CRASH TEAN RACINGS NITRO FUELED",374],[3,"CRYSIS REMASTERED",350],[2,"CUPHEAD",386],[1,"DEMON SLAYER 2",686],[2,"DETECTIVE PIKACHU RETURNS",530],[1,"DEVIL MAY CRY TRIPE PACK",434],[1,"DISGAEA 5 COMPLETE",0],[0,"DONKEY KONG RETURNAL HD",578],[5,"DOOM SLAYER COLLECION",578],[1,"DRAGON BALL FIGHTER Z",338],[0,"DRAGON BALL KAKAROT",470],[1,"DRAGON BALL SPARKIN ZERO",602],[0,"DRAGON BALL XENOVER 2",350],[1,"DRAGON BALL Z: KAKAROT + A NEW POWER AWAKENS SET - DAIMA",494],[0,"DRAGON QUEST Xl S : ECHOES OF AN ALUSIVE AGE -DEFINITIVE EDICITION",470],[0,"FC 25",446],[2,"FC 26",518],[7,"FC 27",734],[1,"FINAL FANTASY I - II - III - IV - V - VI COLLECTION",674],[2,"FINAL FANTASY TACTICS THE IVALICE CHRONICLES",590],[0,"FIRE EMBLEM ENGAGE",626],[9,"FIRE EMBLEM WARRIOS : THREE HOPES",482],[2,"FITNES BOXING",578],[1,"FIVE NIGHTS AT FREDDYS CORE COLLECTION",386],[2,"FIVE NIGHTS AT FREDDYS INTO THE PIT",374],[0,"FIVE NIGHTS AT FREDDYS SECURITY BREACH",458],[0,"FORNITE LEGENDS MENTA",314],[1,"FRIDAY THE 13 THE GAME",554],[1,"GANS BEASTS",362],[2,"HARVES MOON LIGTH OF HOPE SPECIAL EDICION",554],[0,"HELO KITY",398],[1,"HOLLOW KNIGTHT",446],[2,"ICE AGE ERA DE HIELO SCRATS NUTY ADVENTURE",398],[2,"IT TAKES TWO",458],[0,"JUST DANCE 2022",338],[0,"JUST DANCE 2023 EDITION",314],[1,"JUST DANCE 2024 EDITION",290],[0,"JUST DANCE 2025 EDITION",290],[0,"JUST DANCE 2026 EDITION",446],[4,"KIRBI LA TIERA OLVIDADA",566],[0,"KIRBY STAR AKIIES",578],[6,"KIRBYS RETUR DREAM LAND DELUXE",482],[1,"LEGO CITY UNDERCOVER",350],[1,"LEGO MOVIE 2 VIDEO GAME",350],[3,"LEGO NINJAGO",470],[2,"LEGO STAR WARS THE SAGA SKYWALKER SAGA",350],[3,"LEGO THE INCREDIBLE",338],[2,"LITTE NIGHTMARES 2",386],[1,"LITTE NIGHTMARES COMPLETA EDITION",482],[1,"LUIGI MANSION 3",578],[6,"LUIGIS MANSION 2",578],[2,"MARIO 3D WORLD + BOWSERS FURY",566],[2,"MARIO BROS U DELUXE",566],[1,"MARIO BROS WONDER",578],[2,"MARIO GALAXY 1 Y2",638],[8,"MARIO GOLF SUPER RUSH",482],[3,"MARIO KART 8",578],[1,"MARIO LUIGUI BROTHERSHIP",578],[2,"MARIO MAKER 2",578],[1,"MARIO ODISSEY",578],[0,"MARIO PAPER THE THOUSAND YEAR DOOR",578],[1,"MARIO PARTY JAMBOREE",566],[3,"MARIO RABBIDS KINGDON BATTLE",386],[3,"MARIO RABBIDS SPARKS OF HOPE",458],[3,"MARIO RPG",578],[3,"MARIO SMASH BROSH ULTIMATE",566],[1,"MARIO SONIC OLIMPIADAS GAMES TOKYO 2020",530],[2,"MARIO STRIKERS",578],[0,"MARIO SUPER ESTAR",578],[15,"MARIO VS DONKEY KONG",578],[0,"MARVEL CAMCOP COLECCIÓN ARCADE",578],[2,"MEGAMAN 1 Y 2",470],[2,"METAL GEAR SOLID MASTER COLLECTION VOL. 1",434],[1,"METAL SLUG TACTIGS",626],[0,"METRO PRIME 4 BEYOND",578],[1,"METRO REDUX",530],[1,"METROID DREAD",650],[0,"MINECRAFT",410],[0,"MORTAL KOMBAT 1",494],[1,"MORTAL KOMBAT 11",374],[3,"MOSTER HUNTER GENERATION ULTIMATE",362],[2,"MXGP 3 THE OFICIAL MOTOCROSS VIDEOGAME",470],[1,"NARUTO SHIPPUDEN: STORM TRILOGY",518],[1,"NBA 2K 18",350],[1,"NBA 2K 20",470],[1,"NBA 2K19",350],[1,"NIER AUTOMATA",494],[1,"ORI THE COLLECTION",446],[0,"OVERCOOKED 2",410],[2,"OVERCOOKED SPECIAL EDITICION + OVERCOOKER 2",398],[2,"PAYDAY 2",566],[1,"PEPPA PIG MY FRIEND",326],[1,"PIKMIN 1Y2",578],[1,"PIKMIN 3",566],[1,"PIKMIN4",566],[0,"PLANTAS VZ ZOMBIES BATLLE FOR NIEGHBORVILLE",434],[1,"POKEMON ARCEUS",566],[8,"POKEMON DIAMANTE",506],[2,"POKEMON EEVEE",590],[0,"POKEMON ESCARLATA",578],[4,"POKEMON ESCUDO SHIELD",566],[4,"POKEMON ESPADA SWORD",578],[1,"POKEMON LEGENDA Z A",542],[20,"POKEMON SHINING PEARL",506],[1,"POKEMON SNAP",566],[0,"POKEMON VIOLETA",566],[2,"POPPY PLAYTIME TRIPLE PACK",518],[1,"PRINCESA PEACHT",578],[1,"RAYMAN LEGENDS DEFINITIVE EDITION",326],[2,"RED DEAD REDEMPTION 1",410],[1,"RESIDENT EVIL ORIGIN COLLECTION",422],[1,"RESIDENT EVIL TRIPLE PACK",494],[0,"SONIC COLORS ULTIMATE",470],[0,"SONIC FORCES",578],[0,"SONIC MANIA",314],[1,"SONIC RACING",338],[1,"SONIC RACING CROSSWORLDS",530],[0,"SONIC SUPERSTARS",410],[0,"SONIC X SHADOW GENERATIONS",470],[1,"SOUTH PARK SNOW DAY",410],[1,"SOUTH PARK THE FRACTURED BUT WHOLE",410],[0,"SPLATOON 2",578],[8,"SPLATOON 3",554],[2,"SPONGEBOB KRUSTY COOK OFF EXTRA KRUSTY EDITION BOB SPONJA",374],[8,"SPYRO REIGNITED TRILOGY",398],[3,"STREET FIGHTER 30 ANIVERSARY COLLECTION",350],[4,"STREET OF RAGE 4 ANNIVERSARY EDITION",350],[2,"SUPER BOMBERMAN R",326],[5,"SUPER BOMBERMAN R R2",410],[2,"SUSHI STRIKER THE WAY OF SUSHIDO",530],[1,"SWITCH SPORT",566],[5,"THE HOUSE OF THE DEAD REMAKE",566],[5,"THEATRHYTHM FINAL BAR LINE",398],[3,"TOMB RAIDER REMASTER 1,2,3",410],[1,"TOMODACHI LIFE",602],[3,"TOUHOU GENSO WANDERER RELOADED",530],[3,"WOLFENTEIN YOUNGBLOOD DELUXE EDITICION",530],[0,"XENOBLADE CHRONICLES 2",530],[1,"XENOBLADE CHRONICLES 3",530],[4,"XENOBLADE CHRONICLES DEFINITIVE EDITION",578],[1,"YONDER THE CLOUD CATCHER CHRONIBLADE",530],[3,"YOSHIS CRAFTED WORLD",578],[1,"ZELDA BREATHE OF THRE WILD",578],[4,"ZELDA ECHOES OF WISDOM",578],[1,"ZELDA LINKS AWAKENMG",578],[9,"ZELDA SKYWARD SWORD HD",578],[4,"ZELDA TEARS OF THE KINGDOM",602]]};
+
+async function ensureGames() {
+  if (gamesState !== "idle") return;
+  gamesState = "loading"; renderGames();
+  try {
+    const res = await fetch(GAMES_CSV + "?t=" + Date.now(), {cache: "no-store"});
+    if (!res.ok) throw new Error("HTTP " + res.status + " al leer " + GAMES_CSV);
+    const {out, dates} = parseGamesCSV(await res.text());
+    if (!Object.keys(out).length) throw new Error("El archivo " + GAMES_CSV + " no tiene juegos");
+    GAMES = out; GAME_DATES = dates; gamesState = "ok";
+    console.info("[Juegos] inventario leído de " + GAMES_CSV + ":", Object.entries(out).map(([k, v]) => k + " " + v.length).join(" | "));
+  } catch (err) {
+    console.warn("[Juegos] No se pudo leer " + GAMES_CSV + "; se usa la lista de respaldo.", err);
+    GAMES = {}; GAME_DATES = {};
+    Object.keys(GAMES_RESPALDO).forEach(k => { GAMES[k] = GAMES_RESPALDO[k].map(([q, n, p]) => ({q, n, p})); GAME_DATES[k] = GAMES_RESPALDO_FECHA; });
+    gamesState = "fallback";
+  }
+  renderGames();
+}
+function renderGames() {
+  const cat = category; if (!GAME_CATS.includes(cat)) return;
+  $("#gTitle").textContent = "🎮 " + GAME_TITLES[cat];
+  const box = $("#gList"), note = $("#gNote");
+  if (gamesState === "idle" || gamesState === "loading") { box.innerHTML = '<p class="g-msg">Cargando inventario…</p>'; $("#gCount").textContent = ""; note.textContent = ""; return; }
+  const all = GAMES[cat] || [];
+  const q = norm($("#gSearch").value).trim(), only = $("#gStock").checked;
+  const view = []; all.forEach((g, i) => { if (gameMatches(g, q, only)) view.push([g, i]); });
+  const have = new Set(all.map(g => norm(g.n).charAt(0).toUpperCase()));
+  document.querySelectorAll("#gLetters [data-gl]").forEach(b => {
+    const l = b.dataset.gl; b.disabled = !!l && !have.has(l);
+    b.classList.toggle("on", l ? (q.length === 1 && q.toUpperCase() === l) : q === "");
+  });
+  $("#gCount").textContent = view.length + " de " + all.length + " juegos";
+  box.innerHTML = view.length
+    ? '<div class="g-row hd"><span>Cant.</span><span>Juego</span><span>Precio</span><span></span></div>' + view.map(([g, i]) =>
+        `<div class="g-row${g.q > 0 ? "" : " out"}"><span class="g-q">${g.q}</span><span class="g-n">${esc(g.n)}${g.q > 0 ? "" : " <em>Agotado</em>"}</span><span class="g-p">${g.p ? money(g.p) : "Consultar"}</span><button class="g-b" data-gi="${i}" aria-label="Consultar ${esc(g.n)}">💬<span> Consultar</span></button></div>`
+      ).join("")
+    : '<p class="g-msg">No encontramos juegos con esa búsqueda.</p>';
+  const d = GAME_DATES[cat];
+  note.textContent = gamesState === "fallback"
+    ? "⚠ No se pudo leer el inventario actualizado (" + GAMES_CSV + "). Se muestra una lista de respaldo" + (d ? " del " + d : "") + " que puede no estar al día. Consulta por WhatsApp."
+    : "Inventario actualizado" + (d ? " al " + d : "") + ". Precios en Bs. Consulta disponibilidad por WhatsApp.";
+}
+$("#gLetters").innerHTML = '<button class="g-l" data-gl="">Todos</button>' + "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("").map(l => `<button class="g-l" data-gl="${l}">${l}</button>`).join("");
+$("#gSearch").addEventListener("input", renderGames);
+$("#gStock").addEventListener("change", renderGames);
 
 $("#year").textContent = new Date().getFullYear();
 renderProducts();
